@@ -1,1 +1,771 @@
-Hello world
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="공부/기록용 지식 정리 - 전자기학, AI, 수학, 취미" />
+  <title>Notes & Logs</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#101a2f;
+      --panel2:#0f172a;
+      --text:#e7eefc;
+      --muted:#a9b7d6;
+      --line:rgba(255,255,255,.10);
+      --accent:#6aa9ff;
+      --accent2:#7cdbff;
+      --shadow:0 14px 40px rgba(0,0,0,.35);
+      --r:18px;
+      --max:1220px;
+      --side:280px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 10% 8%, rgba(106,169,255,.20), transparent 60%),
+        radial-gradient(900px 420px at 90% 18%, rgba(124,219,255,.15), transparent 55%),
+        linear-gradient(180deg, var(--bg), #070b14 70%);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 14px 42px}
+
+    /* Layout */
+    .layout{
+      display:grid;
+      grid-template-columns: var(--side) 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .layout{grid-template-columns: 1fr}
+    }
+
+    /* Sidebar */
+    .side{
+      position:sticky;
+      top:10px;
+      height: calc(100vh - 20px);
+      overflow:auto;
+      padding:16px;
+      border-radius:var(--r);
+      background: rgba(16,26,47,.78);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 980px){
+      .side{position:relative; height:auto}
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      padding:4px 4px 12px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(106,169,255,.22);
+      flex:0 0 auto;
+    }
+    .brand h1{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hr{height:1px; background:var(--line); margin:12px 0}
+
+    .groupTitle{
+      margin:14px 0 8px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .search{
+      display:flex; gap:8px; margin-top:10px;
+    }
+    .input{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      outline:none;
+    }
+    .input::placeholder{color:rgba(169,183,214,.7)}
+    .btn{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      cursor:pointer;
+      transition:transform .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(106,169,255,.5)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(106,169,255,.85), rgba(124,219,255,.75));
+      border-color: rgba(255,255,255,.08);
+      color:#06101f;
+      font-weight:700;
+    }
+
+    .navlist{display:flex; flex-direction:column; gap:8px}
+    .chip{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      transition:transform .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip:hover{transform:translateY(-1px); border-color:rgba(106,169,255,.45); color:var(--text)}
+    .chip.active{
+      color:var(--text);
+      border-color:rgba(106,169,255,.55);
+      background: rgba(106,169,255,.10);
+    }
+    .count{
+      font-size:12px;
+      color:rgba(169,183,214,.85);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      padding:4px 8px;
+      border-radius:999px;
+    }
+
+    /* Main */
+    .main{
+      padding:16px;
+      border-radius:var(--r);
+      background: rgba(16,26,47,.62);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .topbar{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:12px; flex-wrap:wrap;
+      padding:4px 2px 10px;
+    }
+    .topbar h2{
+      margin:0;
+      font-size:18px;
+    }
+    .topbar .meta{
+      color:var(--muted);
+      font-size:12px;
+      display:flex; gap:8px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .filters{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin:10px 0 14px;
+    }
+    .select{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      outline:none;
+    }
+
+    /* Post list */
+    .list{display:grid; gap:10px}
+    .post{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      transition:transform .12s ease, border-color .12s ease;
+      cursor:pointer;
+    }
+    .post:hover{transform:translateY(-2px); border-color:rgba(106,169,255,.45)}
+    .post h3{margin:0; font-size:16px}
+    .post p{margin:6px 0 0; color:var(--muted); font-size:13px}
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+      color:var(--muted);
+      font-size:12px;
+      align-items:center;
+    }
+    .tag{
+      font-size:12px;
+      color:#d7f2ff;
+      background: rgba(124,219,255,.10);
+      border: 1px solid rgba(124,219,255,.22);
+      padding:5px 9px;
+      border-radius:999px;
+    }
+    .cat{
+      font-size:12px;
+      color:#cfe1ff;
+      background: rgba(106,169,255,.10);
+      border: 1px solid rgba(106,169,255,.24);
+      padding:5px 9px;
+      border-radius:999px;
+    }
+
+    /* Reader */
+    .reader{
+      margin-top:14px;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .reader h2{margin:0 0 8px; font-size:18px}
+    .reader .sub{color:var(--muted); font-size:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+    .reader .content{
+      margin-top:12px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.75;
+      white-space:pre-wrap; /* 줄바꿈 유지 */
+    }
+    .reader a.link{
+      color: #cfe1ff;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    /* Mobile: sidebar collapsible feel */
+    .mobileHint{display:none}
+    @media (max-width: 980px){
+      .mobileHint{
+        display:block;
+        color:var(--muted);
+        font-size:12px;
+        margin:6px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="side" aria-label="사이드바">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Notes & Logs</h1>
+            <p>공부하면서 정리하는 기록</p>
+            <div class="mobileHint">모바일에서는 사이드바가 상단에 표시됩니다.</div>
+          </div>
+        </div>
+
+        <div class="search" aria-label="검색">
+          <input id="q" class="input" type="search" placeholder="검색: 제목/요약/태그/본문" />
+          <button id="clearBtn" class="btn" type="button">지우기</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="groupTitle">Categories</div>
+        <div id="catList" class="navlist" role="list"></div>
+
+        <div class="groupTitle">Quick</div>
+        <div class="navlist">
+          <div class="chip" id="allBtn" role="button" tabindex="0">
+            <span>전체</span><span class="count" id="allCount">0</span>
+          </div>
+          <div class="chip" id="starBtn" role="button" tabindex="0">
+            <span>핀(중요)</span><span class="count" id="starCount">0</span>
+          </div>
+          <div class="chip" id="recentBtn" role="button" tabindex="0">
+            <span>최근 30일</span><span class="count" id="recentCount">0</span>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="groupTitle">About</div>
+        <div style="color:var(--muted); font-size:12px">
+          카테고리(전자기학/AI/수학/취미 등)로 접근하고, 포스트 데이터는 아래의 <b>POSTS 배열</b>만 수정하면 자동 반영됩니다.
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main" aria-label="본문">
+        <div class="topbar">
+          <div>
+            <h2 id="viewTitle">전체 포스트</h2>
+            <div class="meta">
+              <span class="pill">총 <b id="totalShown">0</b> / <span id="totalAll">0</span>개</span>
+              <span class="pill">업데이트: <span id="lastUpdated">-</span></span>
+            </div>
+          </div>
+
+          <div class="filters" aria-label="정렬/태그 필터">
+            <select id="sort" class="select" aria-label="정렬">
+              <option value="new">최신순</option>
+              <option value="old">오래된순</option>
+              <option value="title">제목순</option>
+            </select>
+
+            <select id="tag" class="select" aria-label="태그 필터">
+              <option value="">태그: 전체</option>
+            </select>
+
+            <button id="newPostHint" class="btn primary" type="button" title="업데이트 방법">
+              업데이트 방법
+            </button>
+          </div>
+        </div>
+
+        <section id="list" class="list" aria-label="포스트 목록"></section>
+
+        <section id="reader" class="reader" aria-label="포스트 내용" style="display:none">
+          <h2 id="rTitle"></h2>
+          <div class="sub" id="rMeta"></div>
+          <div class="content" id="rContent"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * =========================
+     *  업데이트는 여기만 수정:
+     *  - id: 고유값
+     *  - date: "YYYY-MM-DD"
+     *  - category: "전자기학" / "AI" / "수학" / "취미" 등
+     *  - tags: ["Maxwell", "PINN"] 같은 배열
+     *  - pinned: 중요글이면 true
+     *  - excerpt: 목록 요약 (짧게)
+     *  - content: 본문 (줄바꿈 가능)
+     *  - links: 참고 링크 배열 [{label, url}] (원하면)
+     * =========================
+     */
+    const POSTS = [
+      {
+        id: "em-001",
+        date: "2025-12-27",
+        category: "전자기학",
+        tags: ["Far-field", "Antenna", "정의"],
+        pinned: true,
+        title: "Far-field 시작 거리 정리: 2D²/λ 조건의 의미",
+        excerpt: "원거리 조건이 왜 2D²/λ로 등장하는지, 파면 곡률/위상오차 관점에서 정리.",
+        content:
+`핵심 요지
+- 원거리(far-field)는 '파면이 거의 평면'으로 보일 정도로 위상오차가 작은 구간입니다.
+- 대표 조건 2D²/λ는 최대 개구(D)에서 위상오차(또는 경로차)를 제한하는 근사로부터 유도됩니다.
+
+체크 포인트
+1) D는 안테나/개구의 최대 치수
+2) λ는 동작 파장
+3) 수신점에서의 파면 곡률이 만들어내는 경로차가 충분히 작아야 패턴(각도별 이득)이 안정적으로 정의됩니다.
+
+추가 메모
+- 문제에 따라 더 엄격한 기준(예: 위상오차 22.5°/10° 등)을 쓰기도 합니다.
+- 근거리에서는 NF 구성요소(reactive/radiating)가 섞여 단일한 '각도 패턴'으로 요약이 어렵습니다.`
+        ,
+        links: [
+          { label: "Antenna far-field region (개념 확인)", url: "https://en.wikipedia.org/wiki/Near_and_far_field" }
+        ]
+      },
+      {
+        id: "ai-001",
+        date: "2025-12-21",
+        category: "AI",
+        tags: ["Surrogate", "Uncertainty", "Ensemble"],
+        pinned: false,
+        title: "Seed ensemble로 불확실성 추정할 때 주의점",
+        excerpt: "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
+        content:
+`정리
+- 서로 다른 random seed로 학습한 모델들의 예측 분산은 주로 '모델 불확실성(에피스테믹)'에 대응합니다.
+- 데이터 잡음(알레아토릭)을 직접 분리해주지는 못합니다.
+
+주의
+1) 모든 seed가 같은 local minima로 수렴하면 분산이 과소평가될 수 있습니다.
+2) out-of-distribution(OOD)에서 분산이 반드시 커진다고 보장할 수 없습니다(특히 강한 정규화/clip이 있으면).
+
+실무 팁
+- ensemble + temperature scaling/콘포멀 예측 같은 calibration을 함께 고려하면 "불확실한 샘플"을 더 신뢰성 있게 분류할 수 있습니다.`
+      },
+      {
+        id: "math-001",
+        date: "2025-11-30",
+        category: "수학",
+        tags: ["Linear Algebra", "Projection", "Rank"],
+        pinned: true,
+        title: "Linear projection은 정보 손실이 '없을' 수 있나?",
+        excerpt: "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
+        content:
+`결론
+- 일반적으로 96 → 32의 선형 투영은 정보 손실이 있습니다.
+- 다만 데이터가 사실상 32차 이하의 저랭크 구조(또는 낮은 유효 차원)를 갖는다면, 손실이 작게 나타날 수 있습니다.
+
+핵심 개념
+- 랭크(rank), 유효 차원(effective dimension), PCA 스펙트럼(고유값 감소)을 보면 판단 가능합니다.
+
+실전 체크
+1) branch feature의 공분산 고유값 분포를 보고 32개 이후가 급격히 작아지는지 확인
+2) projection 전후의 재구성 오차(또는 downstream 성능) 비교`
+      },
+      {
+        id: "hobby-001",
+        date: "2025-12-10",
+        category: "취미",
+        tags: ["Baduk", "Practice"],
+        pinned: false,
+        title: "바둑: 초반에 자주 무너지는 패턴 메모",
+        excerpt: "초반 실수 유형을 체크리스트로 기록.",
+        content:
+`체크리스트
+- 큰 곳 vs 급한 곳 판단
+- 끊김(절단) 약점 방치 여부
+- 무리한 공격으로 내 돌이 얇아지는 순간
+
+한 줄 요약
+- 초반에는 '내 돌의 안전'이 확보되기 전 공격이 독이 되는 경우가 많았습니다.`
+      }
+    ];
+
+    /* ---------- State ---------- */
+    const state = {
+      cat: "",        // 선택 카테고리
+      tag: "",        // 선택 태그
+      q: "",          // 검색어
+      mode: "all",    // all | pinned | recent
+      sort: "new",    // new | old | title
+      openId: ""      // 열람 중인 포스트 id
+    };
+
+    /* ---------- Helpers ---------- */
+    const $ = (id) => document.getElementById(id);
+    const toDate = (s) => new Date(s + "T00:00:00");
+    const daysDiff = (a, b) => Math.floor((a - b) / (1000 * 60 * 60 * 24));
+
+    function uniq(arr){ return Array.from(new Set(arr)); }
+
+    function computeLastUpdated(){
+      if(POSTS.length === 0) return "-";
+      const latest = POSTS.map(p => p.date).sort().slice(-1)[0];
+      return latest;
+    }
+
+    function matchPost(p){
+      // mode
+      if(state.mode === "pinned" && !p.pinned) return false;
+      if(state.mode === "recent"){
+        const d = toDate(p.date);
+        const now = new Date();
+        const diff = daysDiff(now, d);
+        if(diff > 30) return false;
+      }
+
+      // category
+      if(state.cat && p.category !== state.cat) return false;
+
+      // tag
+      if(state.tag && !(p.tags || []).includes(state.tag)) return false;
+
+      // query
+      if(state.q){
+        const q = state.q.toLowerCase();
+        const blob = [
+          p.title, p.excerpt, p.category,
+          (p.tags || []).join(" "),
+          p.content
+        ].join(" ").toLowerCase();
+        if(!blob.includes(q)) return false;
+      }
+      return true;
+    }
+
+    function sortPosts(list){
+      const copy = [...list];
+      if(state.sort === "new"){
+        copy.sort((a,b) => (a.date < b.date ? 1 : -1));
+      } else if(state.sort === "old"){
+        copy.sort((a,b) => (a.date > b.date ? 1 : -1));
+      } else if(state.sort === "title"){
+        copy.sort((a,b) => a.title.localeCompare(b.title, "ko"));
+      }
+      return copy;
+    }
+
+    /* ---------- Render: Sidebar ---------- */
+    function renderSidebar(){
+      // counts
+      const allCount = POSTS.length;
+      const starCount = POSTS.filter(p => p.pinned).length;
+      const recentCount = POSTS.filter(p => {
+        const d = toDate(p.date);
+        const now = new Date();
+        return daysDiff(now, d) <= 30;
+      }).length;
+
+      $("allCount").textContent = String(allCount);
+      $("starCount").textContent = String(starCount);
+      $("recentCount").textContent = String(recentCount);
+
+      // categories
+      const cats = uniq(POSTS.map(p => p.category)).sort((a,b) => a.localeCompare(b,"ko"));
+      const catCounts = Object.fromEntries(cats.map(c => [c, POSTS.filter(p => p.category === c).length]));
+
+      const wrap = $("catList");
+      wrap.innerHTML = "";
+      cats.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "chip" + (state.cat === c ? " active" : "");
+        div.setAttribute("role","button");
+        div.setAttribute("tabindex","0");
+        div.innerHTML = `<span>${c}</span><span class="count">${catCounts[c]}</span>`;
+        div.addEventListener("click", () => {
+          state.cat = (state.cat === c) ? "" : c;  // toggle
+          state.mode = "all"; // 카테고리 선택 시 기본 모드로
+          state.openId = "";
+          renderAll();
+        });
+        wrap.appendChild(div);
+      });
+
+      // quick buttons active
+      setActive($("allBtn"), state.mode === "all");
+      setActive($("starBtn"), state.mode === "pinned");
+      setActive($("recentBtn"), state.mode === "recent");
+    }
+
+    function setActive(el, on){
+      if(on) el.classList.add("active");
+      else el.classList.remove("active");
+    }
+
+    /* ---------- Render: Tag select ---------- */
+    function renderTagOptions(filteredBaseList){
+      // 카테고리/모드 기준으로 가능한 태그만 보여주면 UX가 좋아집니다.
+      const tags = uniq(filteredBaseList.flatMap(p => p.tags || []))
+        .sort((a,b) => a.localeCompare(b,"ko"));
+
+      const sel = $("tag");
+      const keep = state.tag;
+      sel.innerHTML = `<option value="">태그: 전체</option>`;
+      tags.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        sel.appendChild(opt);
+      });
+      // 기존 선택 유지(가능하면)
+      if(keep && tags.includes(keep)) sel.value = keep;
+      else { state.tag = ""; sel.value = ""; }
+    }
+
+    /* ---------- Render: List ---------- */
+    function renderList(){
+      // base list for tag options: mode + category 반영(검색/태그는 제외)
+      const baseForTags = POSTS.filter(p => {
+        // mode
+        if(state.mode === "pinned" && !p.pinned) return false;
+        if(state.mode === "recent"){
+          const d = toDate(p.date);
+          const now = new Date();
+          if(daysDiff(now, d) > 30) return false;
+        }
+        // category
+        if(state.cat && p.category !== state.cat) return false;
+        return true;
+      });
+      renderTagOptions(baseForTags);
+
+      // final list
+      const shown = sortPosts(POSTS.filter(matchPost));
+      $("totalAll").textContent = String(POSTS.length);
+      $("totalShown").textContent = String(shown.length);
+
+      // title
+      let title = "전체 포스트";
+      if(state.mode === "pinned") title = "핀(중요) 포스트";
+      if(state.mode === "recent") title = "최근 30일 포스트";
+      if(state.cat) title += ` · ${state.cat}`;
+      if(state.tag) title += ` · #${state.tag}`;
+      if(state.q) title += ` · 검색: "${state.q}"`;
+      $("viewTitle").textContent = title;
+
+      // list render
+      const list = $("list");
+      list.innerHTML = "";
+      if(shown.length === 0){
+        list.innerHTML = `
+          <div class="post" style="cursor:default">
+            <h3>검색 결과가 없습니다.</h3>
+            <p>검색어/카테고리/태그 조건을 완화해 보시기 바랍니다.</p>
+          </div>
+        `;
+        $("reader").style.display = "none";
+        return;
+      }
+
+      shown.forEach(p => {
+        const el = document.createElement("article");
+        el.className = "post";
+        el.setAttribute("role","button");
+        el.setAttribute("tabindex","0");
+
+        const tags = (p.tags || []).map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join(" ");
+        const pin = p.pinned ? " · <span class='tag'>PIN</span>" : "";
+        el.innerHTML = `
+          <h3>${escapeHtml(p.title)}</h3>
+          <p>${escapeHtml(p.excerpt || "")}</p>
+          <div class="row">
+            <span class="cat">${escapeHtml(p.category)}</span>
+            <span>${escapeHtml(p.date)}</span>
+            ${pin}
+            <span style="flex:1 1 auto"></span>
+            <span>${tags}</span>
+          </div>
+        `;
+        el.addEventListener("click", () => openPost(p.id));
+        list.appendChild(el);
+      });
+
+      // If no open post, open the first one for convenience
+      if(!state.openId || !shown.some(p => p.id === state.openId)){
+        openPost(shown[0].id, /*silent*/true);
+      } else {
+        openPost(state.openId, /*silent*/true);
+      }
+    }
+
+    /* ---------- Reader ---------- */
+    function openPost(id, silent=false){
+      const p = POSTS.find(x => x.id === id);
+      if(!p) return;
+      state.openId = id;
+
+      $("reader").style.display = "block";
+      $("rTitle").textContent = p.title;
+
+      const tagHtml = (p.tags || []).map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join(" ");
+      const pinHtml = p.pinned ? `<span class="tag">PIN</span>` : "";
+      const linkHtml = (p.links || []).map(l => {
+        const safeUrl = String(l.url || "");
+        const safeLabel = escapeHtml(String(l.label || "Link"));
+        return ` <a class="link" href="${safeUrl}" target="_blank" rel="noopener">${safeLabel}</a> `;
+      }).join(" ");
+
+      $("rMeta").innerHTML = `
+        <span class="cat">${escapeHtml(p.category)}</span>
+        <span>${escapeHtml(p.date)}</span>
+        ${pinHtml}
+        <span>${tagHtml}</span>
+        ${linkHtml ? `<span class="pill">참고: ${linkHtml}</span>` : ""}
+      `;
+      $("rContent").textContent = p.content || "";
+
+      if(!silent){
+        // 목록 클릭 시 reader로 자연스럽게 시선 이동
+        $("reader").scrollIntoView({behavior:"smooth", block:"start"});
+      }
+    }
+
+    /* ---------- Security: basic escape ---------- */
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    /* ---------- Events ---------- */
+    function bindEvents(){
+      $("q").addEventListener("input", (e) => {
+        state.q = e.target.value.trim();
+        state.openId = "";
+        renderAll();
+      });
+
+      $("clearBtn").addEventListener("click", () => {
+        $("q").value = "";
+        state.q = "";
+        state.openId = "";
+        renderAll();
+      });
+
+      $("sort").addEventListener("change", (e) => {
+        state.sort = e.target.value;
+        renderAll();
+      });
+
+      $("tag").addEventListener("change", (e) => {
+        state.tag = e.target.value;
+        state.openId = "";
+        renderAll();
+      });
+
+      $("allBtn").addEventListener("click", () => {
+        state.mode = "all";
+        state.openId = "";
+        renderAll();
+      });
+      $("starBtn").addEventListener("click", () => {
+        state.mode = "pinned";
+        state.openId = "";
+        renderAll();
+      });
+      $("recentBtn").addEventListener("click", () => {
+        state.mode = "recent";
+        state.openId = "";
+        renderAll();
+      });
+
+      $("newPostHint").addEventListener("click", () => {
+        alert(
+`업데이트 방법(권장)
+1) 파일 하단 POSTS 배열에 새 객체를 추가합니다.
+2) date는 YYYY-MM-DD, category는 원하는 분류(전자기학/AI/수학/취미 등)로 지정합니다.
+3) tags는 검색/필터에 바로 반영됩니다.
+4) pinned=true로 설정하면 '핀(중요)'에서 모아볼 수 있습니다.
+
+추가 팁
+- 글이 많아지면: category를 더 세분화(예: 전자기학/안테나/전송선로)하거나,
+  tags 규칙을 정해 일관성 있게 운영하시면 좋습니다.`
+        );
+      });
+    }
+
+    /* ---------- Render All ---------- */
+    function renderAll(){
+      $("lastUpdated").textContent = computeLastUpdated();
+      renderSidebar();
+      renderList();
+    }
+
+    /* ---------- Init ---------- */
+    bindEvents();
+    renderAll();
+  </script>
+</body>
+</html>
