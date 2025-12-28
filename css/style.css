@@ -26,71 +26,23 @@ body {
     margin: 0;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
     color: var(--text);
-    background:
-        radial-gradient(900px 420px at 10% 8%, rgba(106, 169, 255, .20), transparent 60%),
-        radial-gradient(900px 420px at 90% 18%, rgba(124, 219, 255, .15), transparent 55%),
-        linear-gradient(180deg, var(--bg), #070b14 70%);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(at 10% 10%, rgba(106, 169, 255, 0.1) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(124, 219, 255, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(106, 169, 255, 0.03) 0px, transparent 50%),
+        linear-gradient(180deg, var(--bg), #020408);
+    background-attachment: fixed;
     line-height: 1.55;
 }
 
-a {
-    color: inherit;
-    text-decoration: none
-}
-
-.wrap {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 18px 14px 42px
-}
-
-/* Layout */
-.layout {
-    display: grid;
-    grid-template-columns: var(--side) 1fr;
-    gap: 14px;
-    align-items: start;
-}
-
-@media (max-width: 980px) {
-    .layout {
-        grid-template-columns: 1fr
-    }
-}
-
-/* Sidebar */
-.side {
-    position: sticky;
-    top: 10px;
-    height: calc(100vh - 20px);
-    overflow: auto;
-    padding: 16px;
-    border-radius: var(--r);
-    background: rgba(16, 26, 47, .78);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
-}
-
-@media (max-width: 980px) {
-    .side {
-        position: relative;
-        height: auto
-    }
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 4px 4px 12px;
-}
+/* ... */
 
 .logo {
     width: 34px;
     height: 34px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    box-shadow: 0 10px 25px rgba(106, 169, 255, .22);
+    border-radius: 8px;
+    /* background: removed */
     flex: 0 0 auto;
 }
 
