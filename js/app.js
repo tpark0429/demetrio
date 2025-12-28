@@ -27,10 +27,10 @@ function escapeHtml(s) {
 /* App Init */
 async function init() {
     try {
-        const res = await fetch('posts/metadata.json');
+        const res = await fetch('posts/metadata.json?t=' + Date.now());
         if (!res.ok) throw new Error("Metadata load failed");
         POSTS = await res.json();
-        
+
         bindEvents();
         checkHash(); // URL 체크
         renderAll();
@@ -203,25 +203,25 @@ async function openPost(id) {
     // Fetch Markdown
     $("rContent").innerHTML = "<p>불러오는 중...</p>";
     $("reader").style.display = "block";
-    
+
     // Smooth scroll
     $("reader").scrollIntoView({ behavior: "smooth", block: "start" });
 
     try {
-        const res = await fetch(`posts/${p.file}`);
+        const res = await fetch(`posts/${p.file}?t=` + Date.now());
         if (!res.ok) throw new Error("Markdown file not found");
         const md = await res.text();
-        
+
         // Render Markdown & Math
         const html = marked.parse(md);
         $("rContent").innerHTML = html;
-        
+
         // MathJax/KaTeX render
         if (window.renderMathInElement) {
             renderMathInElement($("rContent"), {
                 delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false}
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
                 ]
             });
         }
@@ -241,9 +241,9 @@ function bindEvents() {
         state.q = "";
         renderAll();
     };
-    $("allBtn").onclick = () => { state.mode="all"; state.cat=""; history.pushState(null,null," "); renderAll(); };
-    $("starBtn").onclick = () => { state.mode="pinned"; state.cat=""; history.pushState(null,null," "); renderAll(); };
-    $("recentBtn").onclick = () => { state.mode="recent"; state.cat=""; history.pushState(null,null," "); renderAll(); };
+    $("allBtn").onclick = () => { state.mode = "all"; state.cat = ""; history.pushState(null, null, " "); renderAll(); };
+    $("starBtn").onclick = () => { state.mode = "pinned"; state.cat = ""; history.pushState(null, null, " "); renderAll(); };
+    $("recentBtn").onclick = () => { state.mode = "recent"; state.cat = ""; history.pushState(null, null, " "); renderAll(); };
 }
 
 // Start
