@@ -114,22 +114,68 @@ function renderSidebar() {
     $("starCount").textContent = starCount;
     $("recentCount").textContent = recentCount;
 
-    const cats = uniq(POSTS.map(p => p.category)).sort((a, b) => a.localeCompare(b, "ko"));
-    const catCounts = Object.fromEntries(cats.map(c => [c, POSTS.filter(p => p.category === c).length]));
+    // Build Hierarchy: map<Parent, Set<Child>>
+    const tree = {};
+    POSTS.forEach(p => {
+        if (!p.category) return;
+        const parts = p.category.split("/");
+        const parent = parts[0];
+        const child = parts[1] || ""; // Handle "Parent" only case if any
+
+        if (!tree[parent]) tree[parent] = new Set();
+        if (child) tree[parent].add(child);
+    });
 
     const wrap = $("catList");
     wrap.innerHTML = "";
-    cats.forEach(c => {
-        const div = document.createElement("div");
-        div.className = "chip" + (state.cat === c ? " active" : "");
-        div.innerHTML = `<span>${c}</span><span class="count">${catCounts[c]}</span>`;
-        div.onclick = () => {
-            state.cat = (state.cat === c) ? "" : c;
-            state.mode = "all";
-            history.pushState(null, null, " ");
-            renderAll();
-        };
-        wrap.appendChild(div);
+
+    // Sort Parents
+    const parents = Object.keys(tree).sort((a, b) => a.localeCompare(b, "ko"));
+
+    parents.forEach(p => {
+        const children = Array.from(tree[p]).sort((a, b) => a.localeCompare(b, "ko"));
+        const parentDiv = document.createElement("div");
+        parentDiv.className = "cat-group";
+
+        // Logic: Is this group fully expanded? 
+        // We expand if state.cat starts with this Parent/
+        const isExpanded = state.cat.startsWith(p + "/");
+
+        const details = document.createElement("details");
+        if (isExpanded) details.open = true;
+
+        const summary = document.createElement("summary");
+        summary.className = "cat-parent";
+        summary.innerHTML = `<span>${p}</span>`;
+        // Prevent toggling when clicking? No, toggle is good.
+
+        details.appendChild(summary);
+
+        const childList = document.createElement("div");
+        childList.className = "cat-children";
+
+        children.forEach(c => {
+            const fullCat = `${p}/${c}`;
+            const row = document.createElement("div");
+            row.className = "cat-child" + (state.cat === fullCat ? " active" : "");
+
+            // Count posts for this child
+            const count = POSTS.filter(x => x.category === fullCat).length;
+
+            row.innerHTML = `<span>${c}</span><span class="count">${count}</span>`;
+            row.onclick = (e) => {
+                e.stopPropagation(); // Prevent detail toggle if inside summary (not here though)
+                state.cat = (state.cat === fullCat) ? "" : fullCat;
+                state.mode = "all";
+                history.pushState(null, null, " ");
+                renderAll();
+            };
+            childList.appendChild(row);
+        });
+
+        details.appendChild(childList);
+        parentDiv.appendChild(details);
+        wrap.appendChild(parentDiv);
     });
 
     setActive($("allBtn"), state.mode === "all");
@@ -165,13 +211,16 @@ function renderList() {
 
     final.forEach(p => {
         const el = document.createElement("article");
-        el.className = "post" + (state.openId === p.id ? " active-post" : ""); // style style.css에 추가 필요
+        el.className = "post" + (state.openId === p.id ? " active-post" : "");
         const tags = (p.tags || []).map(t => `<span class="tag">#${t}</span>`).join(" ");
+        // Show short category name
+        const shortCat = p.category ? p.category.split("/").pop() : "";
+
         el.innerHTML = `
             <h3>${p.title}</h3>
             <p>${p.excerpt || ""}</p>
             <div class="row">
-                <span class="cat">${p.category}</span>
+                <span class="cat">${shortCat}</span>
                 <span>${p.date}</span>
                 ${p.pinned ? " · <span class='tag'>PIN</span>" : ""}
                 <span style="flex:1"></span>
@@ -179,7 +228,7 @@ function renderList() {
             </div>
         `;
         el.onclick = () => {
-            window.location.hash = `post/${p.id}`; // triggers checkHash -> openPost
+            window.location.hash = `post/${p.id}`;
         };
         list.appendChild(el);
     });
