@@ -1,42 +1,57 @@
 [
-  {
-      "id": "em-001",
-      "date": "2025-12-27",
-      "category": "전자기학",
-      "tags": ["Far-field", "Antenna", "정의"],
-      "pinned": true,
-      "title": "Far-field 시작 거리 정리: 2D²/λ 조건의 의미",
-      "excerpt": "원거리 조건이 왜 2D²/λ로 등장하는지, 파면 곡률/위상오차 관점에서 정리.",
-      "file": "em-001.md"
-  },
-  {
-      "id": "ai-001",
-      "date": "2025-12-21",
-      "category": "AI",
-      "tags": ["Surrogate", "Uncertainty", "Ensemble"],
-      "pinned": false,
-      "title": "Seed ensemble로 불확실성 추정할 때 주의점",
-      "excerpt": "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
-      "file": "ai-001.md"
-  },
-  {
-      "id": "math-001",
-      "date": "2025-11-30",
-      "category": "수학",
-      "tags": ["Linear Algebra", "Projection", "Rank"],
-      "pinned": true,
-      "title": "Linear projection은 정보 손실이 '없을' 수 있나?",
-      "excerpt": "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
-      "file": "math-001.md"
-  },
-  {
-      "id": "hobby-001",
-      "date": "2025-12-10",
-      "category": "취미",
-      "tags": ["Baduk", "Practice"],
-      "pinned": false,
-      "title": "바둑: 초반에 자주 무너지는 패턴 메모",
-      "excerpt": "초반 실수 유형을 체크리스트로 기록.",
-      "file": "hobby-001.md"
-  }
+    {
+        "id": "em-001",
+        "date": "2025-12-27",
+        "category": "전자기학/General EM Theory",
+        "tags": [
+            "Far-field",
+            "Antenna",
+            "정의"
+        ],
+        "pinned": true,
+        "title": "Far-field 시작 거리 정리: 2D²/λ 조건의 의미",
+        "excerpt": "원거리 조건이 왜 2D²/λ로 등장하는지, 파면 곡률/위상오차 관점에서 정리.",
+        "file": "em-001.md"
+    },
+    {
+        "id": "ai-001",
+        "date": "2025-12-21",
+        "category": "AI/Scientific ML",
+        "tags": [
+            "Surrogate",
+            "Uncertainty",
+            "Ensemble"
+        ],
+        "pinned": false,
+        "title": "Seed ensemble로 불확실성 추정할 때 주의점",
+        "excerpt": "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
+        "file": "ai-001.md"
+    },
+    {
+        "id": "math-001",
+        "date": "2025-11-30",
+        "category": "수학/Linear Algebra",
+        "tags": [
+            "Linear Algebra",
+            "Projection",
+            "Rank"
+        ],
+        "pinned": true,
+        "title": "Linear projection은 정보 손실이 '없을' 수 있나?",
+        "excerpt": "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
+        "file": "math-001.md"
+    },
+    {
+        "id": "hobby-001",
+        "date": "2025-12-10",
+        "category": "검도/기본기",
+        "tags": [
+            "Kendo",
+            "Practice"
+        ],
+        "pinned": false,
+        "title": "검도: 머리치기 기본 자세 메모",
+        "excerpt": "중단세에서 타격까지의 중심 이동 포인트.",
+        "file": "hobby-001.md"
+    }
 ]
