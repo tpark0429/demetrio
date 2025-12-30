@@ -248,6 +248,21 @@ function renderList() {
         };
         list.appendChild(el);
     });
+
+    // Auto-open logic: If current openId is gone, or nothing open, open the first one
+    if (final.length > 0) {
+        if (!state.openId || !final.find(p => p.id === state.openId)) {
+            // Update hash to trigger openPost
+            // We use history.replaceState to avoid polluting history stack with auto-jumps
+            const firstId = final[0].id;
+            window.history.replaceState(null, null, `#post/${firstId}`);
+            openPost(firstId);
+        }
+    } else {
+        // No posts shown -> Close reader
+        $("reader").style.display = "none";
+        state.openId = "";
+    }
 }
 
 async function openPost(id) {
