@@ -130,7 +130,23 @@ function renderSidebar() {
     wrap.innerHTML = "";
 
     // Sort Parents
-    const parents = Object.keys(tree).sort((a, b) => a.localeCompare(b, "ko"));
+    // Custom Order: Defined by user
+    const PREFERRED_ORDER = ["수학", "전자기학", "AI", "검도"];
+
+    const parents = Object.keys(tree).sort((a, b) => {
+        const idxA = PREFERRED_ORDER.indexOf(a);
+        const idxB = PREFERRED_ORDER.indexOf(b);
+
+        // If both are in the preferred list, sort by index
+        if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+
+        // If only one is in the list, that one comes first
+        if (idxA !== -1) return -1;
+        if (idxB !== -1) return 1;
+
+        // Otherwise alphabetical
+        return a.localeCompare(b, "ko");
+    });
 
     parents.forEach(p => {
         const children = Array.from(tree[p]).sort((a, b) => a.localeCompare(b, "ko"));
