@@ -36,6 +36,86 @@ body {
     line-height: 1.55;
 }
 
+/* Sidebar Hierarchy */
+details {
+    margin-bottom: 4px;
+}
+
+details>summary {
+    list-style: none;
+    /* remove default arrow */
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-weight: 600;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+details>summary:hover {
+    border-color: rgba(106, 169, 255, .45);
+    color: var(--text);
+}
+
+details[open]>summary {
+    color: var(--text);
+    background: rgba(255, 255, 255, .06);
+    margin-bottom: 6px;
+}
+
+/* Add custom arrow */
+details>summary::after {
+    content: '+';
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+details[open]>summary::after {
+    content: '−';
+}
+
+.cat-children {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 12px;
+    margin-bottom: 12px;
+    border-left: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.cat-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.1s;
+}
+
+.cat-child:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.cat-child.active {
+    color: var(--accent2);
+    background: rgba(124, 219, 255, 0.1);
+    font-weight: 600;
+}
+
 a {
     color: inherit;
     text-decoration: none
