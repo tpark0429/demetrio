@@ -14,6 +14,32 @@
         "file": "em-001.md"
     },
     {
+        "id": "em-002",
+        "date": "2025-12-30",
+        "category": "전자기학/Surface EM Theory",
+        "tags": [
+            "Surface Wave",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "표면파(Surface Wave) 기초 (작성중)",
+        "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
+        "file": "placeholder.md"
+    },
+    {
+        "id": "em-003",
+        "date": "2025-12-30",
+        "category": "전자기학/Circuit Theory",
+        "tags": [
+            "Circuit",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "회로 이론과 EM 필드의 관계 (작성중)",
+        "excerpt": "Circuit Theory 카테고리 테스트를 위한 글입니다.",
+        "file": "placeholder.md"
+    },
+    {
         "id": "ai-001",
         "date": "2025-12-21",
         "category": "AI/Scientific ML",
@@ -26,6 +52,32 @@
         "title": "Seed ensemble로 불확실성 추정할 때 주의점",
         "excerpt": "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
         "file": "ai-001.md"
+    },
+    {
+        "id": "ai-002",
+        "date": "2025-12-30",
+        "category": "AI/Fundamental Theory",
+        "tags": [
+            "Basic",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "AI 기초 이론 노트 (작성중)",
+        "excerpt": "Fundamental Theory 카테고리 테스트.",
+        "file": "placeholder.md"
+    },
+    {
+        "id": "ai-003",
+        "date": "2025-12-30",
+        "category": "AI/Generative AI",
+        "tags": [
+            "GenAI",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "생성형 AI 트렌드 정리 (작성중)",
+        "excerpt": "Generative AI 카테고리 테스트.",
+        "file": "placeholder.md"
     },
     {
         "id": "math-001",
@@ -42,6 +94,19 @@
         "file": "math-001.md"
     },
     {
+        "id": "math-002",
+        "date": "2025-12-30",
+        "category": "수학/Probability",
+        "tags": [
+            "Prob",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "확률론 기초 (작성중)",
+        "excerpt": "Probability 카테고리 테스트.",
+        "file": "placeholder.md"
+    },
+    {
         "id": "hobby-001",
         "date": "2025-12-10",
         "category": "검도/기본기",
@@ -53,5 +118,31 @@
         "title": "검도: 머리치기 기본 자세 메모",
         "excerpt": "중단세에서 타격까지의 중심 이동 포인트.",
         "file": "hobby-001.md"
+    },
+    {
+        "id": "hobby-002",
+        "date": "2025-12-30",
+        "category": "검도/본",
+        "tags": [
+            "Kata",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "검도 본 1~3본 정리 (작성중)",
+        "excerpt": "본 카테고리 테스트.",
+        "file": "placeholder.md"
+    },
+    {
+        "id": "hobby-003",
+        "date": "2025-12-30",
+        "category": "검도/시합",
+        "tags": [
+            "Match",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "시합 운영 팁 (작성중)",
+        "excerpt": "시합 카테고리 테스트.",
+        "file": "placeholder.md"
     }
 ]
