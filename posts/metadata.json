@@ -107,6 +107,19 @@
         "file": "placeholder.md"
     },
     {
+        "id": "math-003",
+        "date": "2026-1-5",
+        "category": "수학/Probability",
+        "tags": [
+            "Differential Equation",
+            "Pending"
+        ],
+        "pinned": false,
+        "title": "Second-order differential equation",
+        "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
+        "file": "math-003.md"
+    },
+    {
         "id": "hobby-001",
         "date": "2025-12-10",
         "category": "검도/기본기",
