@@ -21,7 +21,7 @@ $y\prime\prime+ay\prime+by=r(x)$의 일반해 $y(x)$는 $y(x)=y_h(x)+y_p(x)$를 
 | $ke^{rx}$ | $Ce^{rx}$ |
 | $kx^n$ | $K_nx^n+K_{n-1}x^{n-1}+\cdot\cdot\cdot+K_0$ |
 | $kcos(\omega x)$ | $kcos(\omega x)+Msin(\omega x)$ |
-|$ksin(\omega x)$ | $ $ |
+|$ksin(\omega x)$ | |
 | $ke^{\alpha x}cos(\omega x)$
 $ke^{\alpha x}sin(\omega x)$ | $e^{\alpha x}(kcos(\omega x)+Msin(\omega x))$ |
 
