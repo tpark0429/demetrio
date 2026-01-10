@@ -244,7 +244,12 @@ function renderList() {
             </div>
         `;
         el.onclick = () => {
-            window.location.hash = `post/${p.id}`;
+            if (state.openId === p.id) {
+                // Already open, just scroll to it
+                $("reader").scrollIntoView({ behavior: "smooth", block: "start" });
+            } else {
+                window.location.hash = `post/${p.id}`;
+            }
         };
         list.appendChild(el);
     });
