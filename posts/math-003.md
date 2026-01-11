@@ -16,14 +16,38 @@ real part만 남기고 소거하면 $\frac{1}{2}(y_1+y_2)=e^{px}cos(qx), \frac{1
 # 상수 계수를 갖는 2계 비제차 미분 방정식
 $y\prime\prime+ay\prime+by=r(x)$의 일반해 $y(x)$는 $y(x)=y_h(x)+y_p(x)$를 만족한다. (h : homogeneous (제차), p : particular (특수해)) 이때, 제차해는 제차 미분 방정식의 풀이법을 이용하고 특수해는 미정계수법으로 구한다. 미정계수법이란 $y_p$를 $r(x)$와 유사한 꼴에 적당히 계수를 붙인 것으로 가정한 다음, 주어진 방정식을 만족하도록 미정계수를 결정하는 방법이다.
 
-| $r(x)$ | $y_p$ |
-|-----|-----|
-| $ke^{rx}$ | $Ce^{rx}$ |
-| $kx^n$ | $K_nx^n+K_{n-1}x^{n-1}+\cdot\cdot\cdot+K_0$ |
-| $kcos(\omega x)$ | $kcos(\omega x)+Msin(\omega x)$ |
-|$ksin(\omega x)$ | |
-| $ke^{\alpha x}cos(\omega x)$
-$ke^{\alpha x}sin(\omega x)$ | $e^{\alpha x}(kcos(\omega x)+Msin(\omega x))$ |
+<table>
+  <thead>
+    <tr>
+      <th>$r(x)$</th>
+      <th>$y_p$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$k e^{rx}$</td>
+      <td>$C e^{rx}$</td>
+    </tr>
+    <tr>
+      <td>$k x^n$</td>
+      <td>$K_n x^n + K_{n-1}x^{n-1} + \dots + K_0$</td>
+    </tr>
+    <tr>
+      <td>$k \cos(\omega x)$</td>
+      <td rowspan="2">$K \cos(\omega x) + M \sin(\omega x)$</td>
+    </tr>
+    <tr>
+      <td>$k \sin(\omega x)$</td>
+    </tr>
+    <tr>
+      <td>$k e^{\alpha x} \cos(\omega x)$</td>
+      <td rowspan="2">$e^{\alpha x}(K \cos(\omega x) + M \sin(\omega x))$</td>
+    </tr>
+    <tr>
+      <td>$k e^{\alpha x} \sin(\omega x)$</td>
+    </tr>
+  </tbody>
+</table>
 
 - **랭크(rank)**, 유효 차원(effective dimension), PCA 스펙트럼(고유값 감소)을 보면 판단 가능합니다.
 
