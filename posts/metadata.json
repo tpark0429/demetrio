@@ -1,7 +1,7 @@
 [
     {
         "id": "em-001",
-        "date": "2025-12-30",
+        "date": "2026-1-11",
         "category": "전자기학/General EM Theory",
         "tags": [
             "Fundamental",
@@ -9,12 +9,26 @@
             "EM Theory"
         ],
         "pinned": true,
-        "title": "Definition and Theory",
+        "title": "Basic Definition",
         "excerpt": "기초전자기학 개념 및 이론 정리",
         "file": "em-001.md"
     },
     {
         "id": "em-002",
+        "date": "2026-1-11",
+        "category": "전자기학/General EM Theory",
+        "tags": [
+            "Fundamental",
+            "Definition",
+            "EM Theory"
+        ],
+        "pinned": true,
+        "title": "Electrostatic",
+        "excerpt": "기초전자기학 개념 및 이론 정리",
+        "file": "em-002.md"
+    },
+    {
+        "id": "em-011",
         "date": "2025-12-30",
         "category": "전자기학/Surface EM Theory",
         "tags": [
@@ -27,7 +41,7 @@
         "file": "placeholder.md"
     },
     {
-        "id": "em-003",
+        "id": "em-021",
         "date": "2025-12-30",
         "category": "전자기학/Circuit Theory",
         "tags": [
