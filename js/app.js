@@ -295,7 +295,10 @@ async function openPost(id) {
     try {
         const res = await fetch(`posts/${p.file}?t=` + Date.now());
         if (!res.ok) throw new Error("Markdown file not found");
-        const md = await res.text();
+        let md = await res.text();
+
+        // Strip YAML Front Matter
+        md = md.replace(/^---\s*\n([\s\S]*?)\n---\s*\n/, "");
 
         // Render Markdown & Math
         const html = marked.parse(md);
