@@ -53,6 +53,8 @@
         "excerpt": "Circuit Theory 카테고리 테스트를 위한 글입니다.",
         "file": "placeholder.md"
     },
+
+
     {
         "id": "ai-001",
         "date": "2025-12-21",
@@ -93,6 +95,8 @@
         "excerpt": "Generative AI 카테고리 테스트.",
         "file": "placeholder.md"
     },
+
+    
     {
         "id": "math-001",
         "date": "2025-11-30",
@@ -132,6 +136,8 @@
         "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
         "file": "math-003.md"
     },
+
+    
     {
         "id": "hobby-001",
         "date": "2025-12-10",
