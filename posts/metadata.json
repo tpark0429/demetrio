@@ -1,62 +1,127 @@
 [
     {
-        "id": "em-001",
-        "date": "2026-1-11",
-        "category": "전자기학/General EM Theory",
+        "id": "math-003",
+        "title": "Second-order differential equation",
+        "date": "2026-1-5",
+        "category": "수학/Probability",
         "tags": [
-            "Fundamental",
-            "Definition",
-            "EM Theory"
+            "Differential Equation",
+            "Pending"
         ],
-        "pinned": true,
-        "title": "Basic Definition",
-        "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "em-001.md"
+        "pinned": false,
+        "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
+        "file": "math-003.md"
     },
     {
         "id": "em-002",
-        "date": "2026-1-11",
+        "title": "기초 전자기학 개념 정리",
+        "date": "2026-1-12",
         "category": "전자기학/General EM Theory",
         "tags": [
-            "Fundamental",
-            "Definition",
-            "EM Theory"
+            "General EM",
+            "Electrostatic"
         ],
         "pinned": true,
-        "title": "Electrostatic",
         "excerpt": "기초전자기학 개념 및 이론 정리",
         "file": "em-002.md"
     },
     {
-        "id": "em-011",
+        "id": "ai-002",
+        "title": "AI 기초 이론 노트 (작성중)",
+        "date": "2025-12-30",
+        "category": "AI/Fundamental Theory",
+        "tags": [
+            "Basic",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "Fundamental Theory 카테고리 테스트.",
+        "file": "ai-002.md"
+    },
+    {
+        "id": "ai-003",
+        "title": "생성형 AI 트렌드 정리 (작성중)",
+        "date": "2025-12-30",
+        "category": "AI/Generative AI",
+        "tags": [
+            "GenAI",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "Generative AI 카테고리 테스트.",
+        "file": "ai-003.md"
+    },
+    {
+        "id": "em-001",
+        "title": "Definition and Theory",
+        "date": "2025-12-30",
+        "category": "전자기학/General EM Theory",
+        "tags": [
+            "Fundamental",
+            "Definition",
+            "EM Theory"
+        ],
+        "pinned": true,
+        "excerpt": "기초전자기학 개념 및 이론 정리",
+        "file": "em-001.md"
+    },
+    {
+        "id": "em-003",
+        "title": "Generalized Sheet Transition Condition (GSTC) (작성중)",
         "date": "2025-12-30",
         "category": "전자기학/Surface EM Theory",
         "tags": [
-            "Surface Wave",
-            "Pending"
+            "Surface EM",
+            "Metasurface",
+            "GSTC",
+            "Shielding"
         ],
         "pinned": false,
-        "title": "표면파(Surface Wave) 기초 (작성중)",
         "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
-        "file": "placeholder.md"
+        "file": "em-003.md"
     },
     {
-        "id": "em-021",
+        "id": "hobby-002",
+        "title": "검도 본 정리 (작성중)",
         "date": "2025-12-30",
-        "category": "전자기학/Circuit Theory",
+        "category": "검도/본",
         "tags": [
-            "Circuit",
+            "Kata",
             "Pending"
         ],
         "pinned": false,
-        "title": "회로 이론과 EM 필드의 관계 (작성중)",
-        "excerpt": "Circuit Theory 카테고리 테스트를 위한 글입니다.",
-        "file": "placeholder.md"
+        "excerpt": "본 카테고리 테스트.",
+        "file": "hobby-002.md"
     },
-
-
+    {
+        "id": "hobby-003",
+        "title": "시합 영상 (작성중)",
+        "date": "2025-12-30",
+        "category": "검도/시합",
+        "tags": [
+            "Match",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "시합",
+        "file": "hobby-003.md"
+    },
+    {
+        "id": "math-002",
+        "title": "확률론 기초 (작성중)",
+        "date": "2025-12-30",
+        "category": "수학/Probability",
+        "tags": [
+            "Prob",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "Probability 카테고리 테스트.",
+        "file": "math-002.md"
+    },
     {
         "id": "ai-001",
+        "title": "Seed ensemble로 불확실성 추정할 때 주의점",
         "date": "2025-12-21",
         "category": "AI/Scientific ML",
         "tags": [
@@ -65,40 +130,25 @@
             "Ensemble"
         ],
         "pinned": false,
-        "title": "Seed ensemble로 불확실성 추정할 때 주의점",
         "excerpt": "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
         "file": "ai-001.md"
     },
     {
-        "id": "ai-002",
-        "date": "2025-12-30",
-        "category": "AI/Fundamental Theory",
+        "id": "hobby-001",
+        "title": "검도: 기본 동작",
+        "date": "2025-12-10",
+        "category": "검도/기본기",
         "tags": [
-            "Basic",
-            "Pending"
+            "Kendo",
+            "Basic"
         ],
         "pinned": false,
-        "title": "AI 기초 이론 노트 (작성중)",
-        "excerpt": "Fundamental Theory 카테고리 테스트.",
-        "file": "placeholder.md"
+        "excerpt": "기본 타격 동작",
+        "file": "hobby-001.md"
     },
-    {
-        "id": "ai-003",
-        "date": "2025-12-30",
-        "category": "AI/Generative AI",
-        "tags": [
-            "GenAI",
-            "Pending"
-        ],
-        "pinned": false,
-        "title": "생성형 AI 트렌드 정리 (작성중)",
-        "excerpt": "Generative AI 카테고리 테스트.",
-        "file": "placeholder.md"
-    },
-
-    
     {
         "id": "math-001",
+        "title": "Linear projection은 정보 손실이 '없을' 수 있나?",
         "date": "2025-11-30",
         "category": "수학/Linear Algebra",
         "tags": [
@@ -107,74 +157,7 @@
             "Rank"
         ],
         "pinned": true,
-        "title": "Linear projection은 정보 손실이 '없을' 수 있나?",
         "excerpt": "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
         "file": "math-001.md"
-    },
-    {
-        "id": "math-002",
-        "date": "2025-12-30",
-        "category": "수학/Probability",
-        "tags": [
-            "Prob",
-            "Pending"
-        ],
-        "pinned": false,
-        "title": "확률론 기초 (작성중)",
-        "excerpt": "Probability 카테고리 테스트.",
-        "file": "placeholder.md"
-    },
-    {
-        "id": "math-003",
-        "date": "2026-1-5",
-        "category": "수학/미분방정식",
-        "tags": [
-            "Differential Equation"
-        ],
-        "pinned": false,
-        "title": "Second-order differential equation",
-        "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
-        "file": "math-003.md"
-    },
-
-    
-    {
-        "id": "hobby-001",
-        "date": "2025-12-10",
-        "category": "검도/기본기",
-        "tags": [
-            "Kendo",
-            "Practice"
-        ],
-        "pinned": false,
-        "title": "검도: 머리치기 기본 자세 메모",
-        "excerpt": "중단세에서 타격까지의 중심 이동 포인트.",
-        "file": "hobby-001.md"
-    },
-    {
-        "id": "hobby-002",
-        "date": "2025-12-30",
-        "category": "검도/본",
-        "tags": [
-            "Kata",
-            "Pending"
-        ],
-        "pinned": false,
-        "title": "검도 본 1~3본 정리 (작성중)",
-        "excerpt": "본 카테고리 테스트.",
-        "file": "placeholder.md"
-    },
-    {
-        "id": "hobby-003",
-        "date": "2025-12-30",
-        "category": "검도/시합",
-        "tags": [
-            "Match",
-            "Pending"
-        ],
-        "pinned": false,
-        "title": "시합 운영 팁 (작성중)",
-        "excerpt": "시합 카테고리 테스트.",
-        "file": "placeholder.md"
     }
 ]
