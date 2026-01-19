@@ -13,6 +13,20 @@
         "file": "math-003.md"
     },
     {
+        "id": "ai-001",
+        "title": "Bayesian Inference",
+        "date": "2026-1-19",
+        "category": "AI/Fundamental Theory",
+        "tags": [
+            "Probability",
+            "Uncertainty",
+            "Bayesian rule"
+        ],
+        "pinned": true,
+        "excerpt": "Bayesian Inference 개념.",
+        "file": "ai-001.md"
+    },
+    {
         "id": "em-002",
         "title": "기초 전자기학 개념 정리",
         "date": "2026-1-12",
@@ -24,16 +38,6 @@
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
         "file": "em-002.md"
-    },
-    {
-        "id": "ai-001"
-        "title": "Bayesian Inference"
-        "date": "2026-1-19"
-        "category": "AI/Fundamental Theory"
-        "tags": ["Probability", "Uncertainty", "Bayesian rule"]
-        "pinned": true
-        "excerpt": "Bayesian Inference 개념."
-        "file": "ai-001.md"
     },
     {
         "id": "ai-002",
@@ -128,20 +132,6 @@
         "pinned": false,
         "excerpt": "Probability 카테고리 테스트.",
         "file": "math-002.md"
-    },
-    {
-        "id": "ai-001",
-        "title": "Seed ensemble로 불확실성 추정할 때 주의점",
-        "date": "2025-12-21",
-        "category": "AI/Scientific ML",
-        "tags": [
-            "Surrogate",
-            "Uncertainty",
-            "Ensemble"
-        ],
-        "pinned": false,
-        "excerpt": "여러 seed 평균/분산이 의미하는 불확실성의 성격(에피스테믹)과 함정.",
-        "file": "ai-001.md"
     },
     {
         "id": "hobby-001",
