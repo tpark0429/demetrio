@@ -26,6 +26,16 @@
         "file": "em-002.md"
     },
     {
+        "id": "ai-001"
+        "title": "Bayesian Inference"
+        "date": "2026-1-19"
+        "category": "AI/Fundamental Theory"
+        "tags": ["Probability", "Uncertainty", "Bayesian rule"]
+        "pinned": true
+        "excerpt": "Bayesian Inference 개념."
+        "file": "ai-001.md"
+    },
+    {
         "id": "ai-002",
         "title": "AI 기초 이론 노트 (작성중)",
         "date": "2025-12-30",
