@@ -1,5 +1,5 @@
 ---
-id: "math-001"
+id: "math-101"
 title: "Linear projection은 정보 손실이 '없을' 수 있나?"
 date: "2025-11-30"
 category: "수학/Linear Algebra"
