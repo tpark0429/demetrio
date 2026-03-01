@@ -1,5 +1,5 @@
 ---
-id: "math-002"
+id: "math-201"
 title: "확률론 기초 (작성중)"
 date: "2025-12-30"
 category: "수학/Probability"
