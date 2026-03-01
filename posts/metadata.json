@@ -1,6 +1,6 @@
 [
     {
-        "id": "math-003",
+        "id": "math-301",
         "title": "Second-order differential equation",
         "date": "2026-1-5",
         "category": "수학/Differential Equation",
@@ -10,13 +10,41 @@
         ],
         "pinned": false,
         "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
-        "file": "math-003.md"
+        "file": "math-301.md"
     },
     {
-        "id": "ai-001",
+        "id": "ai-101",
+        "title": "Maximum Likelihood Estimation",
+        "date": "2026-1-19",
+        "category": "AI/Fundamental",
+        "tags": [
+            "Probability",
+            "MLE",
+            "Bayesian rule"
+        ],
+        "pinned": true,
+        "excerpt": "MLE 개념.",
+        "file": "ai-101.md"
+    },
+    {
+        "id": "ai-102",
+        "title": "Maximum A Posterior",
+        "date": "2026-1-19",
+        "category": "AI/Fundamental",
+        "tags": [
+            "Probability",
+            "MAP",
+            "Bayesian rule"
+        ],
+        "pinned": true,
+        "excerpt": "Bayesian Inference 개념.",
+        "file": "ai-102.md"
+    },
+    {
+        "id": "ai-103",
         "title": "Bayesian Inference",
         "date": "2026-1-19",
-        "category": "AI/Fundamental Theory",
+        "category": "AI/Fundamental",
         "tags": [
             "Probability",
             "Uncertainty",
@@ -24,10 +52,10 @@
         ],
         "pinned": true,
         "excerpt": "Bayesian Inference 개념.",
-        "file": "ai-001.md"
+        "file": "ai-103.md"
     },
     {
-        "id": "em-002",
+        "id": "em-102",
         "title": "기초 전자기학 개념 정리",
         "date": "2026-1-12",
         "category": "전자기학/General EM Theory",
@@ -37,23 +65,23 @@
         ],
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "em-002.md"
+        "file": "em-102.md"
     },
     {
-        "id": "ai-002",
-        "title": "AI 기초 이론 노트 (작성중)",
+        "id": "ai-201",
+        "title": "PINN (작성중)",
         "date": "2025-12-30",
-        "category": "AI/Fundamental Theory",
+        "category": "AI/Physics-informed AI",
         "tags": [
             "Basic",
             "Pending"
         ],
         "pinned": false,
         "excerpt": "Fundamental Theory 카테고리 테스트.",
-        "file": "ai-002.md"
+        "file": "ai-201.md"
     },
     {
-        "id": "ai-003",
+        "id": "ai-301",
         "title": "생성형 AI 트렌드 정리 (작성중)",
         "date": "2025-12-30",
         "category": "AI/Generative AI",
@@ -63,10 +91,10 @@
         ],
         "pinned": false,
         "excerpt": "Generative AI 카테고리 테스트.",
-        "file": "ai-003.md"
+        "file": "ai-301.md"
     },
     {
-        "id": "em-001",
+        "id": "em-101",
         "title": "Definition and Theory",
         "date": "2025-12-30",
         "category": "전자기학/General EM Theory",
@@ -77,10 +105,10 @@
         ],
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "em-001.md"
+        "file": "em-101.md"
     },
     {
-        "id": "em-003",
+        "id": "em-201",
         "title": "Generalized Sheet Transition Condition (GSTC) (작성중)",
         "date": "2025-12-30",
         "category": "전자기학/Surface EM Theory",
@@ -92,7 +120,7 @@
         ],
         "pinned": false,
         "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
-        "file": "em-003.md"
+        "file": "em-201.md"
     },
     {
         "id": "hobby-002",
@@ -121,7 +149,7 @@
         "file": "hobby-003.md"
     },
     {
-        "id": "math-002",
+        "id": "math-201",
         "title": "확률론 기초 (작성중)",
         "date": "2025-12-30",
         "category": "수학/Probability",
@@ -131,7 +159,7 @@
         ],
         "pinned": false,
         "excerpt": "Probability 카테고리 테스트.",
-        "file": "math-002.md"
+        "file": "math-201.md"
     },
     {
         "id": "hobby-001",
@@ -147,7 +175,7 @@
         "file": "hobby-001.md"
     },
     {
-        "id": "math-001",
+        "id": "math-101",
         "title": "Linear projection은 정보 손실이 '없을' 수 있나?",
         "date": "2025-11-30",
         "category": "수학/Linear Algebra",
@@ -158,6 +186,6 @@
         ],
         "pinned": true,
         "excerpt": "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
-        "file": "math-001.md"
+        "file": "math-101.md"
     }
 ]
