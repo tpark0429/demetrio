@@ -2,8 +2,8 @@
 id: "math-003"
 title: "Second-order differential equation"
 date: "2026-1-5"
-category: "수학/Probability"
-tags: ["Differential Equation", "Pending"]
+category: "수학/Differential Equation"
+tags: ["Differential Equation", "2nd-order"]
 pinned: false
 excerpt: "상수 계수를 갖는 2계 제차 미분 방정식"
 ---
