@@ -1,5 +1,18 @@
 [
     {
+        "id": "ai-104",
+        "title": "Entropy",
+        "date": "2026-4-21",
+        "category": "AI/Fundamental",
+        "tags": [
+            "Information Theory",
+            "Entropy"
+        ],
+        "pinned": false,
+        "excerpt": "Entropy 개념.",
+        "file": "[AI]fundamental/ai-104.md"
+    },
+    {
         "id": "math-301",
         "title": "Second-order differential equation",
         "date": "2026-1-5",
@@ -22,7 +35,7 @@
             "MLE",
             "Bayesian rule"
         ],
-        "pinned": true,
+        "pinned": false,
         "excerpt": "MLE 개념.",
         "file": "[AI]fundamental/ai-101.md"
     },
@@ -36,8 +49,8 @@
             "MAP",
             "Bayesian rule"
         ],
-        "pinned": true,
-        "excerpt": "Bayesian Inference 개념.",
+        "pinned": false,
+        "excerpt": "MAP 개념.",
         "file": "[AI]fundamental/ai-102.md"
     },
     {
@@ -47,10 +60,9 @@
         "category": "AI/Fundamental",
         "tags": [
             "Probability",
-            "Uncertainty",
             "Bayesian rule"
         ],
-        "pinned": true,
+        "pinned": false,
         "excerpt": "Bayesian Inference 개념.",
         "file": "[AI]fundamental/ai-103.md"
     },
