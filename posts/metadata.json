@@ -10,7 +10,7 @@
         ],
         "pinned": false,
         "excerpt": "Entropy 개념.",
-        "file": "[AI]fundamental/ai-104.md"
+        "file": "ai-104.md"
     },
     {
         "id": "math-301",
@@ -23,7 +23,7 @@
         ],
         "pinned": false,
         "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
-        "file": "[MATH]differential equation/math-301.md"
+        "file": "math-301.md"
     },
     {
         "id": "ai-101",
@@ -37,7 +37,7 @@
         ],
         "pinned": false,
         "excerpt": "MLE 개념.",
-        "file": "[AI]fundamental/ai-101.md"
+        "file": "ai-101.md"
     },
     {
         "id": "ai-102",
@@ -51,7 +51,7 @@
         ],
         "pinned": false,
         "excerpt": "MAP 개념.",
-        "file": "[AI]fundamental/ai-102.md"
+        "file": "ai-102.md"
     },
     {
         "id": "ai-103",
@@ -64,7 +64,7 @@
         ],
         "pinned": false,
         "excerpt": "Bayesian Inference 개념.",
-        "file": "[AI]fundamental/ai-103.md"
+        "file": "ai-103.md"
     },
     {
         "id": "em-102",
@@ -77,7 +77,7 @@
         ],
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "[EM]general em theory/em-102.md"
+        "file": "em-102.md"
     },
     {
         "id": "ai-301",
@@ -90,7 +90,7 @@
         ],
         "pinned": false,
         "excerpt": "Generative AI 카테고리 테스트.",
-        "file": "[AI]generative ai/ai-301.md"
+        "file": "ai-301.md"
     },
     {
         "id": "ai-201",
@@ -103,7 +103,7 @@
         ],
         "pinned": false,
         "excerpt": "Fundamental Theory 카테고리 테스트.",
-        "file": "[AI]physics-informed ai/ai-201.md"
+        "file": "ai-201.md"
     },
     {
         "id": "em-101",
@@ -117,7 +117,7 @@
         ],
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "[EM]general em theory/em-101.md"
+        "file": "em-101.md"
     },
     {
         "id": "em-201",
@@ -132,7 +132,7 @@
         ],
         "pinned": false,
         "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
-        "file": "[EM]surface em theory/em-201.md"
+        "file": "em-201.md"
     },
     {
         "id": "hobby-002",
@@ -145,7 +145,7 @@
         ],
         "pinned": false,
         "excerpt": "본 카테고리 테스트.",
-        "file": "[KENDO]/hobby-002.md"
+        "file": "hobby-002.md"
     },
     {
         "id": "hobby-003",
@@ -158,7 +158,7 @@
         ],
         "pinned": false,
         "excerpt": "시합",
-        "file": "[KENDO]/hobby-003.md"
+        "file": "hobby-003.md"
     },
     {
         "id": "math-201",
@@ -171,7 +171,7 @@
         ],
         "pinned": false,
         "excerpt": "Probability 카테고리 테스트.",
-        "file": "[MATH]probability/math-201.md"
+        "file": "math-201.md"
     },
     {
         "id": "hobby-001",
@@ -184,7 +184,7 @@
         ],
         "pinned": false,
         "excerpt": "기본 타격 동작",
-        "file": "[KENDO]/hobby-001.md"
+        "file": "hobby-001.md"
     },
     {
         "id": "math-101",
@@ -198,6 +198,6 @@
         ],
         "pinned": true,
         "excerpt": "차원 축소는 원칙적으로 정보 손실. 단, 데이터가 저차원 다양체/저랭크면 예외적으로 손실이 작아질 수 있음.",
-        "file": "[MATH]linear algebra/math-101.md"
+        "file": "math-101.md"
     }
 ]
