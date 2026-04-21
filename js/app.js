@@ -293,7 +293,8 @@ async function openPost(id) {
     $("reader").scrollIntoView({ behavior: "smooth", block: "start" });
 
     try {
-        const res = await fetch(`posts/${p.file}?t=` + Date.now());
+        const encodedFile = p.file.split('/').map(encodeURIComponent).join('/');
+        const res = await fetch(`posts/${encodedFile}?t=` + Date.now());
         if (!res.ok) throw new Error("Markdown file not found");
         let md = await res.text();
 
