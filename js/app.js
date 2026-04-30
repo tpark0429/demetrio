@@ -301,6 +301,9 @@ async function openPost(id) {
         // Strip YAML Front Matter
         md = md.replace(/^---\s*\n([\s\S]*?)\n---\s*\n/, "");
 
+        // Convert absolute asset paths to relative paths to fix broken images on GitHub Pages
+        md = md.replaceAll("](/assets/", "](assets/").replaceAll('src="/assets/', 'src="assets/');
+
         // Render Markdown & Math
         const html = marked.parse(md);
         $("rContent").innerHTML = html;
