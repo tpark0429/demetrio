@@ -1,5 +1,18 @@
 [
     {
+        "id": "ai-105",
+        "title": "KL Divergence",
+        "date": "2026-5-14",
+        "category": "AI/Fundamental",
+        "tags": [
+            "Information Theory",
+            "KL Divergence"
+        ],
+        "pinned": false,
+        "excerpt": "KL Divergence 개념",
+        "file": "ai-105.md"
+    },
+    {
         "id": "ai-104",
         "title": "Entropy",
         "date": "2026-4-21",
@@ -9,7 +22,7 @@
             "Entropy"
         ],
         "pinned": false,
-        "excerpt": "Entropy 개념.",
+        "excerpt": "Entropy 개념, 손실",
         "file": "ai-104.md"
     },
     {
