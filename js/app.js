@@ -305,7 +305,32 @@ async function openPost(id) {
         md = md.replaceAll("](/assets/", "](assets/").replaceAll('src="/assets/', 'src="assets/');
 
         // Render Markdown & Math
-        const html = marked.parse(md);
+        const mathBlocks = [];
+        let placeholderCounter = 0;
+
+        // Replace block math ($$)
+        let processedMd = md.replace(/\$\$([\s\S]+?)\$\$/g, (match) => {
+            const placeholder = `%%MATH_BLOCK_${placeholderCounter}%%`;
+            mathBlocks.push({ placeholder, content: match });
+            placeholderCounter++;
+            return placeholder;
+        });
+
+        // Replace inline math ($)
+        processedMd = processedMd.replace(/\$([^\$\n]+?)\$/g, (match) => {
+            const placeholder = `%%MATH_INLINE_${placeholderCounter}%%`;
+            mathBlocks.push({ placeholder, content: match });
+            placeholderCounter++;
+            return placeholder;
+        });
+
+        let html = marked.parse(processedMd);
+
+        // Put math blocks back
+        for (const block of mathBlocks) {
+            html = html.replace(block.placeholder, block.content);
+        }
+
         $("rContent").innerHTML = html;
 
         // MathJax/KaTeX render
