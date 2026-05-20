@@ -2,7 +2,7 @@
     {
         "id": "ai-105",
         "title": "KL Divergence",
-        "date": "2026-5-14",
+        "date": "2026-05-14",
         "category": "AI/Fundamental",
         "tags": [
             "Information Theory",
@@ -15,7 +15,7 @@
     {
         "id": "ai-104",
         "title": "Entropy",
-        "date": "2026-4-21",
+        "date": "2026-04-21",
         "category": "AI/Fundamental",
         "tags": [
             "Information Theory",
@@ -26,36 +26,22 @@
         "file": "ai-104.md"
     },
     {
-        "id": "math-301",
-        "title": "Second-order differential equation",
-        "date": "2026-1-5",
-        "category": "수학/Differential Equation",
-        "tags": [
-            "Differential Equation",
-            "Pending"
-        ],
-        "pinned": false,
-        "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
-        "file": "math-301.md"
-    },
-    {
-        "id": "ai-101",
-        "title": "Maximum Likelihood Estimation",
-        "date": "2026-1-19",
+        "id": "ai-103",
+        "title": "Bayesian Inference",
+        "date": "2026-01-19",
         "category": "AI/Fundamental",
         "tags": [
             "Probability",
-            "MLE",
             "Bayesian rule"
         ],
         "pinned": false,
-        "excerpt": "MLE 개념.",
-        "file": "ai-101.md"
+        "excerpt": "Bayesian Inference 개념.",
+        "file": "ai-103.md"
     },
     {
         "id": "ai-102",
         "title": "Maximum A Posterior",
-        "date": "2026-1-19",
+        "date": "2026-01-19",
         "category": "AI/Fundamental",
         "tags": [
             "Probability",
@@ -67,22 +53,23 @@
         "file": "ai-102.md"
     },
     {
-        "id": "ai-103",
-        "title": "Bayesian Inference",
-        "date": "2026-1-19",
+        "id": "ai-101",
+        "title": "Maximum Likelihood Estimation",
+        "date": "2026-01-19",
         "category": "AI/Fundamental",
         "tags": [
             "Probability",
+            "MLE",
             "Bayesian rule"
         ],
         "pinned": false,
-        "excerpt": "Bayesian Inference 개념.",
-        "file": "ai-103.md"
+        "excerpt": "MLE 개념.",
+        "file": "ai-101.md"
     },
     {
         "id": "em-102",
         "title": "기초 전자기학 개념 정리",
-        "date": "2026-1-12",
+        "date": "2026-01-12",
         "category": "전자기학/General EM Theory",
         "tags": [
             "General EM",
@@ -91,6 +78,87 @@
         "pinned": true,
         "excerpt": "기초전자기학 개념 및 이론 정리",
         "file": "em-102.md"
+    },
+    {
+        "id": "math-301",
+        "title": "Second-order differential equation",
+        "date": "2026-01-05",
+        "category": "수학/Differential Equation",
+        "tags": [
+            "Differential Equation",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
+        "file": "math-301.md"
+    },
+    {
+        "id": "math-201",
+        "title": "확률론 기초 (작성중)",
+        "date": "2025-12-30",
+        "category": "수학/Probability",
+        "tags": [
+            "Prob",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "Probability 카테고리 테스트.",
+        "file": "math-201.md"
+    },
+    {
+        "id": "hobby-003",
+        "title": "시합 영상 (작성중)",
+        "date": "2025-12-30",
+        "category": "검도/시합",
+        "tags": [
+            "Match",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "시합",
+        "file": "hobby-003.md"
+    },
+    {
+        "id": "hobby-002",
+        "title": "검도 본 정리 (작성중)",
+        "date": "2025-12-30",
+        "category": "검도/본",
+        "tags": [
+            "Kata",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "본 카테고리 테스트.",
+        "file": "hobby-002.md"
+    },
+    {
+        "id": "em-201",
+        "title": "Generalized Sheet Transition Condition (GSTC) (작성중)",
+        "date": "2025-12-30",
+        "category": "전자기학/Surface EM Theory",
+        "tags": [
+            "Surface EM",
+            "Metasurface",
+            "GSTC",
+            "Shielding"
+        ],
+        "pinned": false,
+        "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
+        "file": "em-201.md"
+    },
+    {
+        "id": "em-101",
+        "title": "Definition and Theory",
+        "date": "2025-12-30",
+        "category": "전자기학/General EM Theory",
+        "tags": [
+            "Fundamental",
+            "Definition",
+            "EM Theory"
+        ],
+        "pinned": true,
+        "excerpt": "기초전자기학 개념 및 이론 정리",
+        "file": "em-101.md"
     },
     {
         "id": "ai-301",
@@ -117,74 +185,6 @@
         "pinned": false,
         "excerpt": "Fundamental Theory 카테고리 테스트.",
         "file": "ai-201.md"
-    },
-    {
-        "id": "em-101",
-        "title": "Definition and Theory",
-        "date": "2025-12-30",
-        "category": "전자기학/General EM Theory",
-        "tags": [
-            "Fundamental",
-            "Definition",
-            "EM Theory"
-        ],
-        "pinned": true,
-        "excerpt": "기초전자기학 개념 및 이론 정리",
-        "file": "em-101.md"
-    },
-    {
-        "id": "em-201",
-        "title": "Generalized Sheet Transition Condition (GSTC) (작성중)",
-        "date": "2025-12-30",
-        "category": "전자기학/Surface EM Theory",
-        "tags": [
-            "Surface EM",
-            "Metasurface",
-            "GSTC",
-            "Shielding"
-        ],
-        "pinned": false,
-        "excerpt": "Surface EM Theory 카테고리 테스트를 위한 글입니다.",
-        "file": "em-201.md"
-    },
-    {
-        "id": "hobby-002",
-        "title": "검도 본 정리 (작성중)",
-        "date": "2025-12-30",
-        "category": "검도/본",
-        "tags": [
-            "Kata",
-            "Pending"
-        ],
-        "pinned": false,
-        "excerpt": "본 카테고리 테스트.",
-        "file": "hobby-002.md"
-    },
-    {
-        "id": "hobby-003",
-        "title": "시합 영상 (작성중)",
-        "date": "2025-12-30",
-        "category": "검도/시합",
-        "tags": [
-            "Match",
-            "Pending"
-        ],
-        "pinned": false,
-        "excerpt": "시합",
-        "file": "hobby-003.md"
-    },
-    {
-        "id": "math-201",
-        "title": "확률론 기초 (작성중)",
-        "date": "2025-12-30",
-        "category": "수학/Probability",
-        "tags": [
-            "Prob",
-            "Pending"
-        ],
-        "pinned": false,
-        "excerpt": "Probability 카테고리 테스트.",
-        "file": "math-201.md"
     },
     {
         "id": "hobby-001",
