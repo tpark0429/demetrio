@@ -334,13 +334,23 @@ async function openPost(id) {
         $("rContent").innerHTML = html;
 
         // MathJax/KaTeX render
-        if (window.renderMathInElement) {
-            renderMathInElement($("rContent"), {
-                delimiters: [
-                    { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false }
-                ]
-            });
+        const renderMath = () => {
+            if (window.renderMathInElement) {
+                renderMathInElement($("rContent"), {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ]
+                });
+            }
+        };
+
+        renderMath();
+        // If KaTeX load is delayed (e.g. on slow connections or direct refresh), retry
+        if (!window.renderMathInElement) {
+            window.addEventListener("load", renderMath);
+            setTimeout(renderMath, 200);
+            setTimeout(renderMath, 1000);
         }
     } catch (e) {
         $("rContent").innerHTML = `<p style="color:salmon">내용을 불러오지 못했습니다. (${e.message})</p>`;
