@@ -3,7 +3,8 @@ import json
 import glob
 import re
 
-POSTS_DIR = 'posts'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+POSTS_DIR = os.path.join(BASE_DIR, 'posts')
 OUTPUT_FILE = os.path.join(POSTS_DIR, 'metadata.json')
 
 def parse_front_matter(content):
