@@ -328,7 +328,7 @@ async function openPost(id) {
 
         // Put math blocks back
         for (const block of mathBlocks) {
-            html = html.replace(block.placeholder, block.content);
+            html = html.replace(block.placeholder, () => block.content);
         }
 
         $("rContent").innerHTML = html;
