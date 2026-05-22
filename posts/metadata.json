@@ -1,5 +1,19 @@
 [
     {
+        "id": "ai-101",
+        "title": "Probability",
+        "date": "2026-05-21",
+        "category": "AI/Fundamental",
+        "tags": [
+            "Probability",
+            "Random Variable",
+            "Expexted Value"
+        ],
+        "pinned": false,
+        "excerpt": "Probability의 기초",
+        "file": "ai-101.md"
+    },
+    {
         "id": "ai-105",
         "title": "KL Divergence",
         "date": "2026-05-14",
@@ -51,20 +65,6 @@
         "pinned": false,
         "excerpt": "MAP 개념.",
         "file": "ai-102.md"
-    },
-    {
-        "id": "ai-101",
-        "title": "Maximum Likelihood Estimation",
-        "date": "2026-01-19",
-        "category": "AI/Fundamental",
-        "tags": [
-            "Probability",
-            "MLE",
-            "Bayesian rule"
-        ],
-        "pinned": false,
-        "excerpt": "MLE 개념.",
-        "file": "ai-101.md"
     },
     {
         "id": "em-102",
