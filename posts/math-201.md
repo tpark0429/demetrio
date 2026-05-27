@@ -35,14 +35,14 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
 정확히 아는 값이 아닌 기대되는 값 (확률적으로 계산해야 하는 값), generalization of the weighted average.
 
 - $E[X] = x_1p_1 + x_2p_2 + ... + x_np_n = \sum_{i=1}^n x_ip_i$
- - X: a random variable
- - $p_i$: the probability of $x_i$
- - $x_i$: the possible outcome value of $X$
+  - X: a random variable
+  - $p_i$: the probability of $x_i$
+  - $x_i$: the possible outcome value of $X$
 
 ### 주사위 2번 던지기 예제 #1
- - 나올 수 있는 sample space는 36가지 ((1,1), (1,2), ... , (6,6))
- - 확률은 36가지 경우 모두 동일하게 1/36.
- - random variable X는 주사위 값 2개의 합이라고 가정. min value는 2, max value는 12로 총 11가지의 값을 취할 수 있다.
+- 나올 수 있는 sample space는 36가지 ((1,1), (1,2), ... , (6,6))
+- 확률은 36가지 경우 모두 동일하게 1/36.
+- random variable X는 주사위 값 2개의 합이라고 가정. min value는 2, max value는 12로 총 11가지의 값을 취할 수 있다.
   - 주사위 2개를 던졌을 때, 합이 7이 될 확률 : $P(X=7) = \frac{6}{36} = \frac{1}{6}$
   - 주사위 2개를 던졌을 때, 합이 9가 될 확률 : $P(X=9) = \frac{4}{36} = \frac{1}{9}$
   - 기댓값 : $E[X] = \sum_{i=1}^n x_ip_i = 2 \times \frac{1}{36} + 3 \times \frac{2}{36} + 4 \times \frac{3}{36} + 5 \times \frac{4}{36} + 6 \times \frac{5}{36} + 7 \times \frac{6}{36} + 8 \times \frac{5}{36} + 9 \times \frac{4}{36} + 10 \times \frac{3}{36} + 11 \times \frac{2}{36} + 12 \times \frac{1}{36} = 7$
@@ -95,7 +95,7 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
     </tr>
   </tbody>
 </table>
- - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{70}{10}=7$ : 평균과 기댓값이 동일한 case
+  - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{70}{10}=7$ : 평균과 기댓값이 동일한 case
 
 - Dataset #2는
 <table>
@@ -143,8 +143,9 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
     </tr>
   </tbody>
 </table>
- - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{81}{10}=8.1$: 평균과 기댓값이 다른 case
- - 따라서 예측문제에 있어선 과거의 평균값 보단 기댓값을 사용해야 한다.
+  - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{81}{10}=8.1$: 평균과 기댓값이 다른 case
+
+  - 따라서 예측문제에 있어선 과거의 평균값 보단 기댓값을 사용해야 한다.
 
 ### Properties
 - $E[X+Y] = E[X] + E[Y]$
@@ -158,9 +159,9 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
 - 확률 변수가 특정한 값을 가질 확률을 아나태는 함수를 의미
 - Sample Space $\to$ Random Variable $\to$ Measurable Space
 - Probability Function
- - 입력 : 확률변수 값
- - 출력 : 확률
- - 표현 : $p=f(x)$
+  - 입력 : 확률변수 값
+  - 출력 : 확률
+  - 표현 : $p=f(x)$
 
 ## 확률분포의 종류 (Random variable 값에 따라 구분)
 ### 이산형 (Discrete) 값 입력
@@ -172,15 +173,15 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
 - $p(a \le X \le b) = \int_a^b f_x(x)dx$
 
 ## 베르누이 분포
-- Random variable
- - 1 $\to$ success
- - 0 $\to$ failure
- - $p(success) = p(x=1) = p$
- - $p(failure) = p(x=0) = 1-p$
-- 확률 함수
- -f_X(x;p)=p^x(1-p)^{1-x}, x=0 or 1
- - 매개변수 p가 주어졌을 때 확률변수 X값이 x일 확률
-- Expected value
- - $E[X] = P$
-- Variance
- - $Var[X] = p(1-p)$
+### Random variable
+- 1 $\to$ success
+- 0 $\to$ failure
+- $p(success) = p(x=1) = p$
+- $p(failure) = p(x=0) = 1-p$
+### 확률 함수
+- f_X(x;p)=p^x(1-p)^{1-x}, x=0 or 1
+- 매개변수 p가 주어졌을 때 확률변수 X값이 x일 확률
+### Expected value
+- $E[X] = P$
+### Variance
+- $Var[X] = p(1-p)$
