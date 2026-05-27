@@ -1,8 +1,8 @@
 ---
-id: "ai-105"
+id: "math-205"
 title: "KL Divergence"
 date: "2026-5-14"
-category: "AI/Fundamental"
+category: "수학/Probability & Information"
 tags: ["Information Theory", "KL Divergence"]
 pinned: false
 excerpt: "KL Divergence 개념"

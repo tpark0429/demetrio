@@ -1,8 +1,8 @@
 ---
-id: "ai-103"
+id: "math-203"
 title: "Bayesian Inference"
 date: "2026-1-19"
-category: "AI/Fundamental"
+category: "수학/Probability & Information"
 tags: ["Probability", "Bayesian rule"]
 pinned: false
 excerpt: "Bayesian Inference 개념."

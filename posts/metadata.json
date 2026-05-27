@@ -1,5 +1,19 @@
 [
     {
+        "id": "math-201",
+        "title": "Probability",
+        "date": "2026-05-21",
+        "category": "수학/Probability & Information",
+        "tags": [
+            "Probability",
+            "Random Variable",
+            "Expexted Value"
+        ],
+        "pinned": false,
+        "excerpt": "Probability의 기초",
+        "file": "math-201.md"
+    },
+    {
         "id": "ai-101",
         "title": "Probability",
         "date": "2026-05-21",
@@ -14,49 +28,49 @@
         "file": "ai-101.md"
     },
     {
-        "id": "ai-105",
+        "id": "math-205",
         "title": "KL Divergence",
         "date": "2026-05-14",
-        "category": "AI/Fundamental",
+        "category": "수학/Probability & Information",
         "tags": [
             "Information Theory",
             "KL Divergence"
         ],
         "pinned": false,
         "excerpt": "KL Divergence 개념",
-        "file": "ai-105.md"
+        "file": "math-205.md"
     },
     {
-        "id": "ai-104",
+        "id": "math-204",
         "title": "Entropy",
         "date": "2026-04-21",
-        "category": "AI/Fundamental",
+        "category": "수학/Probability & Information",
         "tags": [
             "Information Theory",
             "Entropy"
         ],
         "pinned": false,
         "excerpt": "Entropy 개념, 손실",
-        "file": "ai-104.md"
+        "file": "math-204.md"
     },
     {
-        "id": "ai-103",
+        "id": "math-203",
         "title": "Bayesian Inference",
         "date": "2026-01-19",
-        "category": "AI/Fundamental",
+        "category": "수학/Probability & Information",
         "tags": [
             "Probability",
             "Bayesian rule"
         ],
         "pinned": false,
         "excerpt": "Bayesian Inference 개념.",
-        "file": "ai-103.md"
+        "file": "math-203.md"
     },
     {
-        "id": "ai-102",
+        "id": "math-202",
         "title": "Maximum A Posterior",
         "date": "2026-01-19",
-        "category": "AI/Fundamental",
+        "category": "수학/Probability & Information",
         "tags": [
             "Probability",
             "MAP",
@@ -64,13 +78,13 @@
         ],
         "pinned": false,
         "excerpt": "MAP 개념.",
-        "file": "ai-102.md"
+        "file": "math-202.md"
     },
     {
         "id": "em-102",
         "title": "기초 전자기학 개념 정리",
         "date": "2026-01-12",
-        "category": "전자기학/General EM Theory",
+        "category": "전자기학/Theory",
         "tags": [
             "General EM",
             "Electrostatic"
@@ -91,19 +105,6 @@
         "pinned": false,
         "excerpt": "상수 계수를 갖는 2계 제차 미분 방정식",
         "file": "math-301.md"
-    },
-    {
-        "id": "math-201",
-        "title": "확률론 기초 (작성중)",
-        "date": "2025-12-30",
-        "category": "수학/Probability",
-        "tags": [
-            "Prob",
-            "Pending"
-        ],
-        "pinned": false,
-        "excerpt": "Probability 카테고리 테스트.",
-        "file": "math-201.md"
     },
     {
         "id": "hobby-003",
@@ -135,7 +136,7 @@
         "id": "em-201",
         "title": "Generalized Sheet Transition Condition (GSTC) (작성중)",
         "date": "2025-12-30",
-        "category": "전자기학/Surface EM Theory",
+        "category": "전자기학/Application",
         "tags": [
             "Surface EM",
             "Metasurface",
@@ -150,7 +151,7 @@
         "id": "em-101",
         "title": "Definition and Theory",
         "date": "2025-12-30",
-        "category": "전자기학/General EM Theory",
+        "category": "전자기학/Theory",
         "tags": [
             "Fundamental",
             "Definition",

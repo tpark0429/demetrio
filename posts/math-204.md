@@ -1,8 +1,8 @@
 ---
-id: "ai-104"
+id: "math-204"
 title: "Entropy"
 date: "2026-4-21"
-category: "AI/Fundamental"
+category: "수학/Probability & Information"
 tags: ["Information Theory", "Entropy"]
 pinned: false
 excerpt: "Entropy 개념, 손실"
