@@ -16,12 +16,14 @@ excerpt: "Probability의 기초"
 
 ## Random Variable의 종류
 ### Discrete Random Variable(이산확률변수)
- 실험 결과를 이산적인 값으로 mapping (ex: 주사위 굴리기, 대한민국에서 하루에 태어나는 사람 수)
- Discrete random variable은 정확한 값을 알고 있는 경우이다. (distinct or separated values) 따라서 확률 질량 함수(probability mass function)로 표현된다.
+실험 결과를 이산적인 값으로 mapping (ex: 주사위 굴리기, 대한민국에서 하루에 태어나는 사람 수)
+
+Discrete random variable은 정확한 값을 알고 있는 경우이다. (distinct or separated values) 따라서 확률 질량 함수(probability mass function)로 표현된다.
 
 ### Continuous Random Variable(연속확률변수)
- 실험 결과를 특정 구간의 모든 실수 값을 취하는 연속 구간의 값으로 mapping (ex: 서울에 거주하는 40대 남성의 키, 올림픽 100 m 달리기 우승자의 기록)
- '키'라는 개념이 이산적인 개념으로 보일 수 있으나 정확한 값을 알 수 없기 때문에 (소수점 몇째 자리까지인가? 특정 구간에 있을 확률로 표시할 수 밖에 없음 : 175~180 cm일 확률) 확률 밀도 함수(probability density function)로 표현된다.
+실험 결과를 특정 구간의 모든 실수 값을 취하는 연속 구간의 값으로 mapping (ex: 서울에 거주하는 40대 남성의 키, 올림픽 100 m 달리기 우승자의 기록)
+
+'키'라는 개념이 이산적인 개념으로 보일 수 있으나 정확한 값을 알 수 없기 때문에 (소수점 몇째 자리까지인가? 특정 구간에 있을 확률로 표시할 수 밖에 없음 : 175~180 cm일 확률) 확률 밀도 함수(probability density function)로 표현된다.
 
 # Expected Value
 ### 평균 (Mean)
