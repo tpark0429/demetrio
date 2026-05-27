@@ -1,5 +1,18 @@
 [
     {
+        "id": "ai-101",
+        "title": "Deep Learning 기초 (작성중)",
+        "date": "2026-05-27",
+        "category": "AI/Deep Learning",
+        "tags": [
+            "Deep Learning",
+            "Pending"
+        ],
+        "pinned": false,
+        "excerpt": "Deep Learning의 기초 개념 및 이론 정리",
+        "file": "ai-101.md"
+    },
+    {
         "id": "math-201",
         "title": "Probability",
         "date": "2026-05-21",
@@ -12,20 +25,6 @@
         "pinned": false,
         "excerpt": "Probability의 기초",
         "file": "math-201.md"
-    },
-    {
-        "id": "ai-101",
-        "title": "Probability",
-        "date": "2026-05-21",
-        "category": "AI/Fundamental",
-        "tags": [
-            "Probability",
-            "Random Variable",
-            "Expexted Value"
-        ],
-        "pinned": false,
-        "excerpt": "Probability의 기초",
-        "file": "ai-101.md"
     },
     {
         "id": "math-205",
