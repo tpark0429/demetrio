@@ -499,14 +499,14 @@ a {
 
 .reader .content p {
   margin-top: 0;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.5em;
 }
 
 .reader .content ul,
 .reader .content ol {
   padding-left: 24px;
   margin-top: 0;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.5em;
 }
 
 .reader .content li {
