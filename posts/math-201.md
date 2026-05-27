@@ -95,6 +95,7 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
     </tr>
   </tbody>
 </table>
+
   - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{70}{10}=7$ : 평균과 기댓값이 동일한 case
 
 - Dataset #2는
@@ -143,6 +144,7 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
     </tr>
   </tbody>
 </table>
+  
   - $Mean(\mu)=\frac{1}{10}\sum_{i=1}^{10} x_i=\frac{81}{10}=8.1$: 평균과 기댓값이 다른 case
 
   - 따라서 예측문제에 있어선 과거의 평균값 보단 기댓값을 사용해야 한다.
