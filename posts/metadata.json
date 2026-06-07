@@ -1,5 +1,33 @@
 [
     {
+        "id": "em-302",
+        "title": "Simultaneous Switching Noise",
+        "date": "2026-06-07",
+        "category": "EMI/EMC",
+        "tags": [
+            "SSN",
+            "EMI",
+            "Power Integrity"
+        ],
+        "pinned": false,
+        "excerpt": "SSN의 정의",
+        "file": "em-302.md"
+    },
+    {
+        "id": "em-301",
+        "title": "Termination",
+        "date": "2026-05-31",
+        "category": "EMI/EMC",
+        "tags": [
+            "Termination",
+            "EMI",
+            "Signal Integrity"
+        ],
+        "pinned": false,
+        "excerpt": "Termination의 종류와 효과",
+        "file": "em-301.md"
+    },
+    {
         "id": "em-201",
         "title": "Window Function",
         "date": "2026-05-31",
