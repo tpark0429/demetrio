@@ -17,7 +17,7 @@
         "id": "em-301",
         "title": "Termination",
         "date": "2026-05-31",
-        "category": "EMI/EMC",
+        "category": "전자기학/Engineering",
         "tags": [
             "Termination",
             "EMI",
@@ -31,7 +31,7 @@
         "id": "em-201",
         "title": "Window Function",
         "date": "2026-05-31",
-        "category": "신호처리/FFT",
+        "category": "전자기학/Application",
         "tags": [
             "Window Function",
             "FFT",
