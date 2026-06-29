@@ -7,6 +7,6 @@ tags: ["Kata", "Pending"]
 pinned: false
 excerpt: "본 카테고리 테스트."
 ---
-# 검도 본 정리 (작성중)
+## 검도 본 정리 (작성중)
 
 작성중입니다.

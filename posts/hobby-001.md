@@ -7,4 +7,4 @@ tags: ["Kendo", "Basic"]
 pinned: false
 excerpt: "기본 타격 동작"
 ---
-# 작성중
+## 작성중

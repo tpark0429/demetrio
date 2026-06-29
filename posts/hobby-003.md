@@ -7,6 +7,6 @@ tags: ["Match", "Pending"]
 pinned: false
 excerpt: "시합"
 ---
-# 시합 (작성중)
+## 시합 (작성중)
 
 작성중입니다.

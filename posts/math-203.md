@@ -7,7 +7,6 @@ tags: ["Probability", "Bayesian rule"]
 pinned: false
 excerpt: "Bayesian Inference 개념."
 ---
-
 A가 주어졌을 때 B는 무엇인가?
 
 $P(B|A)$

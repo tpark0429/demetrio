@@ -12,7 +12,9 @@ $ y"+ay'+by=0 $의 해를 $ e^{\lambda x} $ 라고 놓고 풀면 $ {\lambda^2} +
 Characteristic equation의 해는 두 개의 함수 $ y_1, y_2 $가 정의된 구간에서 1차 독립 (linearly independent)이어야 하며 어떠한 상수 $ C $가 곱해진 형태 $ Ce^x $도 해가 될 수 있고 $ C_1e^{\lambda_1x} + C_2e^{\lambda_2x} $도 해가 될 수 있다. 따라서 basis는 2개 ($ y_1, y_2 $), 일반해는 $ C_1e^{\lambda_1x}+C_2e^{\lambda_2x} $가 된다.
 
 - 1차 독립
+
 $$ k_1y_1(x)+k_2y_2(x)=0이면\ k_1=k_2=0 $$
+
 - 1차 종속
 $$ k_1y_1(x)+k_2y_2(x)=0이면\ k_1\neq0, k_2\neq0인\ k존재 $$
 

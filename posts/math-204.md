@@ -7,10 +7,13 @@ tags: ["Information Theory", "Entropy"]
 pinned: false
 excerpt: "Entropy 개념, 손실"
 ---
-# Information
-# Entropy
-# Entropy in Deep Learning
-# Entropy Loss
+## Information
+
+## Entropy
+
+## Entropy in Deep Learning
+
+## Entropy Loss
 Deep Learning에서 흔히 사용되는 Entropy
 
 Binary Cross Entropy (BCE) : 아주 많은 것 중 하나의 케이스
@@ -59,15 +62,15 @@ $BCE=-[plogp+(1-p)log(1-p)]$
 
 정답에서 가까워질수록, 멀어질수록 entropy는 어떻게 변하는지 관찰해보면 loss function에 적용할 수 있음을 알 수 있다.
 
-## Binary Cross Entropy의 일반적 특징
+### Binary Cross Entropy의 일반적 특징
 Binary Cross Entropy를 Loss 값으로 설정하고 학습시킬 수 있다.
  - 예측 오차가 줄어들면 Entropy가 0에 근접, 예측 오차가 커지면 Entropy가 무한대로 급격히 증가
 
-## Binary Cross Entropy를 Deep learning에 적용하는 방법
+### Binary Cross Entropy를 Deep learning에 적용하는 방법
 입력은 mini batch 형태로 들어오기 때문에 n개의 데이터가 동시에 신경망을 통과하게 되고 n개의 BCE loss가 나온다.
 이 n개의 BCE loss를 1/n으로 평균내어 BCE를 구한다.
 
-## Summary
+### Summary
 <table>
   <thead>
     <tr>
@@ -90,7 +93,7 @@ Binary Cross Entropy를 Loss 값으로 설정하고 학습시킬 수 있다.
   </tbody>
 </table>
 
-### Cross Entropy를 사용하는 이유
+#### Cross Entropy를 사용하는 이유
 Squared Error를 사용하는 것이 더 직관적이긴하나 Cross Entropy를 사용할 경우 학습을 효율적이로 빠르게 진행할 수 있다는 신경망 학습 opimization 관점에서 큰 차이가 있다.
 Regression Task에서는 어쩔 수 없이 MSE를 사용하지만 Classification에선 Entropy loss를 사용하는 것이 좋다.
 ![BCE SE Combined](/assets/BCE_SE_combined.png)
