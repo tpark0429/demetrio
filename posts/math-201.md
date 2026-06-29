@@ -8,7 +8,7 @@ pinned: false
 excerpt: "Probability의 기초"
 ---
 ## Random Variable
-어떤 실험 결과(s)가 확률적으로 나타날때, 이를 실수값(R)로 표현한 함수이다.
+어떤 실험 결과(s)가 확률적으로 나타날때, 이를 **실수값(R)로 표현한 함수**이다.
 즉, 실험 결과를 특정값으로 mapping 해주는 function이다.
 - $X:s\to R, s \in S$
 - s: sample space, X: random variable
@@ -18,22 +18,24 @@ excerpt: "Probability의 기초"
 #### Discrete Random Variable(이산확률변수)
 실험 결과를 이산적인 값으로 mapping (ex: 주사위 굴리기, 대한민국에서 하루에 태어나는 사람 수)
 
-Discrete random variable은 정확한 값을 알고 있는 경우이다. (distinct or separated values) 따라서 확률 질량 함수(probability mass function)로 표현된다.
+Discrete random variable은 정확한 값을 알고 있는 경우이다. (distinct or separated values) 따라서 **확률 질량 함수(probability mass function)**로 표현된다.
 
 #### Continuous Random Variable(연속확률변수)
 실험 결과를 특정 구간의 모든 실수 값을 취하는 연속 구간의 값으로 mapping (ex: 서울에 거주하는 40대 남성의 키, 올림픽 100 m 달리기 우승자의 기록)
 
-'키'라는 개념이 이산적인 개념으로 보일 수 있으나 정확한 값을 알 수 없기 때문에 (소수점 몇째 자리까지인가? 특정 구간에 있을 확률로 표시할 수 밖에 없음 : 175~180 cm일 확률) 확률 밀도 함수(probability density function)로 표현된다.
+'키'라는 개념이 이산적인 개념으로 보일 수 있으나 정확한 값을 알 수 없기 때문에 (소수점 몇째 자리까지인가? 특정 구간에 있을 확률로 표시할 수 밖에 없음 : 175~180 cm일 확률) **확률 밀도 함수(probability density function)**로 표현된다.
 
 ## Expected Value
 
-#### 평균 (Mean)
+#### **평균 (Mean)**
 어떤 집합의 모든 원소 값을 더한 후 원소의 갯수로 나눈 값
 
 - $Mean (\mu)=\frac{x_1 + x_2 + ... + x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i$
 
-#### 기댓값 (Expected Value)
+#### **기댓값 (Expected Value)**
 정확히 아는 값이 아닌 기대되는 값 (확률적으로 계산해야 하는 값), generalization of the weighted average.
+
+> 💡 **핵심 직관**: **평균(Mean)**은 데이터 집합을 단순히 등분한 산술적 평균값인 반면, **기댓값(Expected Value)**은 각 확률 변수가 가질 수 있는 값에 확률적 가중치를 곱해 평균낸 값이다. 즉, 확률 분포 상에서 기대되는 가중 평균의 일반화된 개념이다.
 
 - $E[X] = x_1p_1 + x_2p_2 + ... + x_np_n = \sum_{i=1}^n x_ip_i$
   - X: a random variable
