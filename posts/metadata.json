@@ -1,15 +1,16 @@
 [
     {
         "id": "math-302",
-        "title": "Green's function",
+        "title": "그린 함수(Green's Function)와 Neural Operator",
         "date": "2026-06-29",
         "category": "수학/Differential Equation",
         "tags": [
             "Differential Equation",
-            "Green's function"
+            "Green's function",
+            "Neural Operator"
         ],
         "pinned": false,
-        "excerpt": "그린 함수를 이용한 미분방정식의 해법",
+        "excerpt": "역행렬에서 출발하여 그린 함수를 거쳐 Neural Operator까지의 수학적 연결 고리 정리",
         "file": "math-302.md"
     },
     {

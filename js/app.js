@@ -54,6 +54,7 @@ function checkHash() {
         // close reader if back to root
         $("reader").style.display = "none";
         state.openId = "";
+        renderSidebar();
         renderList();
     }
 }
@@ -114,48 +115,42 @@ function renderSidebar() {
     $("starCount").textContent = starCount;
     $("recentCount").textContent = recentCount;
 
-    // Build Hierarchy: map<Parent, Set<Child>>
+    // Build Hierarchy: parent -> child -> list of posts
     const tree = {};
     POSTS.forEach(p => {
         if (!p.category) return;
         const parts = p.category.split("/");
         const parent = parts[0];
-        const child = parts[1] || ""; // Handle "Parent" only case if any
+        const child = parts[1] || "기타";
 
-        if (!tree[parent]) tree[parent] = new Set();
-        if (child) tree[parent].add(child);
+        if (!tree[parent]) tree[parent] = {};
+        if (!tree[parent][child]) tree[parent][child] = [];
+        tree[parent][child].push(p);
     });
 
     const wrap = $("catList");
     wrap.innerHTML = "";
 
     // Sort Parents
-    // Custom Order: Defined by user
     const PREFERRED_ORDER = ["수학", "전자기학", "AI", "검도"];
 
     const parents = Object.keys(tree).sort((a, b) => {
         const idxA = PREFERRED_ORDER.indexOf(a);
         const idxB = PREFERRED_ORDER.indexOf(b);
 
-        // If both are in the preferred list, sort by index
         if (idxA !== -1 && idxB !== -1) return idxA - idxB;
-
-        // If only one is in the list, that one comes first
         if (idxA !== -1) return -1;
         if (idxB !== -1) return 1;
-
-        // Otherwise alphabetical
         return a.localeCompare(b, "ko");
     });
 
     parents.forEach(p => {
-        const children = Array.from(tree[p]).sort((a, b) => a.localeCompare(b, "ko"));
         const parentDiv = document.createElement("div");
         parentDiv.className = "cat-group";
 
-        // Logic: Is this group fully expanded? 
-        // We expand if state.cat starts with this Parent/
-        const isExpanded = state.cat.startsWith(p + "/");
+        // Logic: Expand if state.cat starts with this Parent/ or if the currently open post belongs to this parent
+        const belongsToParent = POSTS.some(x => x.id === state.openId && x.category && x.category.startsWith(p + "/"));
+        const isExpanded = state.cat.startsWith(p + "/") || belongsToParent;
 
         const details = document.createElement("details");
         if (isExpanded) details.open = true;
@@ -163,33 +158,56 @@ function renderSidebar() {
         const summary = document.createElement("summary");
         summary.className = "cat-parent";
         summary.innerHTML = `<span>${p}</span>`;
-        // Prevent toggling when clicking? No, toggle is good.
-
         details.appendChild(summary);
 
-        const childList = document.createElement("div");
-        childList.className = "cat-children";
+        const childListDiv = document.createElement("div");
+        childListDiv.className = "cat-children";
+
+        const children = Object.keys(tree[p]).sort((a, b) => a.localeCompare(b, "ko"));
 
         children.forEach(c => {
             const fullCat = `${p}/${c}`;
-            const row = document.createElement("div");
-            row.className = "cat-child" + (state.cat === fullCat ? " active" : "");
+            const subcatGroup = document.createElement("div");
+            subcatGroup.className = "subcategory-group";
 
-            // Count posts for this child
-            const count = POSTS.filter(x => x.category === fullCat).length;
+            const subcatTitle = document.createElement("div");
+            const isActiveSub = state.cat === fullCat;
+            subcatTitle.className = "subcategory-title" + (isActiveSub ? " active" : "");
 
-            row.innerHTML = `<span>${c}</span><span class="count">${count}</span>`;
-            row.onclick = (e) => {
-                e.stopPropagation(); // Prevent detail toggle if inside summary (not here though)
+            const count = tree[p][c].length;
+            subcatTitle.innerHTML = `<span>${c}</span><span class="count" style="font-size:10px; padding: 2px 6px; margin-left:6px">${count}</span>`;
+
+            subcatTitle.onclick = (e) => {
+                e.stopPropagation();
                 state.cat = (state.cat === fullCat) ? "" : fullCat;
                 state.mode = "all";
                 history.pushState(null, null, " ");
                 renderAll();
             };
-            childList.appendChild(row);
+            subcatGroup.appendChild(subcatTitle);
+
+            const postListContainer = document.createElement("div");
+            postListContainer.className = "sidebar-post-list";
+
+            const postsInSub = sortPosts(tree[p][c]);
+            postsInSub.forEach(post => {
+                const postRow = document.createElement("a");
+                const isActivePost = state.openId === post.id;
+                postRow.className = "sidebar-post" + (isActivePost ? " active" : "");
+                postRow.href = `#post/${post.id}`;
+                postRow.textContent = post.title;
+                postRow.title = post.title; // Tooltip for overflow text
+                postRow.onclick = (e) => {
+                    e.stopPropagation();
+                };
+                postListContainer.appendChild(postRow);
+            });
+
+            subcatGroup.appendChild(postListContainer);
+            childListDiv.appendChild(subcatGroup);
         });
 
-        details.appendChild(childList);
+        details.appendChild(childListDiv);
         parentDiv.appendChild(details);
         wrap.appendChild(parentDiv);
     });
@@ -274,6 +292,8 @@ async function openPost(id) {
     const p = POSTS.find(x => x.id === id);
     if (!p) return;
     state.openId = id;
+
+    renderSidebar();
 
     // Render Meta
     $("rTitle").textContent = p.title;
