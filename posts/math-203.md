@@ -21,4 +21,4 @@ $P(B|A)=f(A:w)$
 
 w에 대한 **posterior 분포**를 얻기 위해서는 데이터를 관찰하기 전에 prior 분포 $P(w)$를 지정해야 한다. Bayesian Inference는 모델링 과정의 모든 불확실성 원인을 통합되고 일관된 방식으로 처리하며, 가정과 제약 조건을 명시하도록 가정한다. 또한 Bayesian 접근 방식은 모든 무관한 변수들을 **적분 제거 (integrating out, marginalisation)** 함으로써 **Ockaham's Razor** (불필요하게 복잡한 모델을 자동으로 깎아냄)가 구현된다. 즉, Bayesian 프레임워크 하에서는 불필요한 복잡성 없이 데이터를 충분히 설명하는 단순한 모델을 선호하는 경향이 존재한다.
 
-> 💡 **핵심 직관**: 전통적인 방식의 점 추정(Point Estimation)은 단 하나의 최적 파라미터 $w$를 구하므로 과적합 위험이 크다. 반면 **베이지안 추론(Bayesian Inference)**은 매개변수 $w$ 자체를 확률 변수로 취급하여 $w$의 분포(Posterior)를 추론하고, 모든 가능성을 적분(Marginalisation)함으로써 과적합을 방지하고 단순한 모델을 선호하게 만든다.
+> 💡 **Mathematical Insight**: 전통적인 방식의 점 추정(Point Estimation)은 단 하나의 최적 파라미터 $w$를 구하므로 과적합 위험이 크다. 반면 **베이지안 추론(Bayesian Inference)**은 매개변수 $w$ 자체를 확률 변수로 취급하여 $w$의 분포(Posterior)를 추론하고, 모든 가능성을 적분(Marginalisation)함으로써 과적합을 방지하고 단순한 모델을 선호하게 만든다.

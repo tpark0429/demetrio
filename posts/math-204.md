@@ -93,6 +93,6 @@ Regression Task에서는 어쩔 수 없이 MSE를 사용하지만 Classification
 ![BCE SE Combined](/assets/BCE_SE_combined.png)
 Back-prop 과정에서 Entropy가 더 큰 업데이트를 수행한다. (0과 1구간 사이에서 MSE보다 훨씬 큰 기울기 $\frac{\partial L(\theta)}{\partial \theta}$ 갖는다.)
 
-> 💡 **핵심 직관**: **MSE(Mean Squared Error)**는 정답 근처나 완전 오답 근처에서 모두 경사(Gradient)가 완만해져 학습이 정체되는 반면, **Cross Entropy**는 오차가 클수록 급격하게 높은 경사를 제공하므로 오차 역전파(Backpropagation)가 훨씬 빠르고 효율적으로 진행된다.
+> 💡 **Mathematical Insight**: **MSE(Mean Squared Error)**는 정답 근처나 완전 오답 근처에서 모두 경사(Gradient)가 완만해져 학습이 정체되는 반면, **Cross Entropy**는 오차가 클수록 급격하게 높은 경사를 제공하므로 오차 역전파(Backpropagation)가 훨씬 빠르고 효율적으로 진행된다.
 
 [Ref] https://github.com/kafa46

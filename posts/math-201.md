@@ -35,7 +35,7 @@ Discrete random variable은 정확한 값을 알고 있는 경우이다. (distin
 #### **기댓값 (Expected Value)**
 정확히 아는 값이 아닌 기대되는 값 (확률적으로 계산해야 하는 값), generalization of the weighted average.
 
-> 💡 **핵심 직관**: **평균(Mean)**은 데이터 집합을 단순히 등분한 산술적 평균값인 반면, **기댓값(Expected Value)**은 각 확률 변수가 가질 수 있는 값에 확률적 가중치를 곱해 평균낸 값이다. 즉, 확률 분포 상에서 기대되는 가중 평균의 일반화된 개념이다.
+> 💡 **Mathematical Insight**: **평균(Mean)**은 데이터 집합을 단순히 등분한 산술적 평균값인 반면, **기댓값(Expected Value)**은 각 확률 변수가 가질 수 있는 값에 확률적 가중치를 곱해 평균낸 값이다. 즉, 확률 분포 상에서 기대되는 가중 평균의 일반화된 개념이다.
 
 - $E[X] = x_1p_1 + x_2p_2 + ... + x_np_n = \sum_{i=1}^n x_ip_i$
   - X: a random variable

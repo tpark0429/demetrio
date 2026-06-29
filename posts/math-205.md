@@ -31,4 +31,4 @@ $L(\theta) = D_{KL}(Y \parallel \hat{Y}) = \mathbf{E}_Y \left[ \log \frac{Y}{\ha
 $Y$와 $\hat{Y}$는 softmax를 통과한 확률분포라고 가정하고, n개의 **데이터를 모아 Monte Carlo 근사** (n개의 데이터를 샘플링한 평균은 전체의 평균이다.)를 취하면 $L(\theta) = \frac{1}{n} \sum_{i=1}^n \log \frac{Y_i}{\hat{Y}_i}$로 표현할 수 있다.
 이것을 loss로 사용하게 되면 예측 오차를 줄이면서 전체적인 확률 분포도 같아지도록 학습이 가능하다.
 
-> 💡 **핵심 직관**: **KL Divergence**는 두 확률 분포의 다름을 측정하는 척도이다. 대칭성($D(p \parallel q) \neq D(q \parallel p)$)을 만족하지 않으므로 엄밀한 의미의 거리(Distance)가 아닌 **발산(Divergence)**으로 정의된다. 딥러닝에서는 실제 레이블 분포 $Y$와 예측 확률 분포 $\hat{Y}$ 사이의 차이를 줄이는 손실 함수로 활용된다.
+> 💡 **Mathematical Insight**: **KL Divergence**는 두 확률 분포의 다름을 측정하는 척도이다. 대칭성($D(p \parallel q) \neq D(q \parallel p)$)을 만족하지 않으므로 엄밀한 의미의 거리(Distance)가 아닌 **발산(Divergence)**으로 정의된다. 딥러닝에서는 실제 레이블 분포 $Y$와 예측 확률 분포 $\hat{Y}$ 사이의 차이를 줄이는 손실 함수로 활용된다.
