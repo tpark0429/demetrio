@@ -1,5 +1,18 @@
 [
     {
+        "id": "math-302",
+        "title": "Green's function",
+        "date": "2026-06-29",
+        "category": "수학/Differential Equation",
+        "tags": [
+            "Differential Equation",
+            "Green's function"
+        ],
+        "pinned": false,
+        "excerpt": "그린 함수를 이용한 미분방정식의 해법",
+        "file": "math-302.md"
+    },
+    {
         "id": "em-302",
         "title": "Simultaneous Switching Noise",
         "date": "2026-06-07",
@@ -44,12 +57,15 @@
     },
     {
         "id": "ai-101",
-        "title": "Deep Learning 기초 (작성중)",
+        "title": "Deep Learning 기초",
         "date": "2026-05-27",
         "category": "AI/Deep Learning",
         "tags": [
             "Deep Learning",
-            "Pending"
+            "Parameter",
+            "Softmax",
+            "Logit",
+            "Sigmoid"
         ],
         "pinned": false,
         "excerpt": "Deep Learning의 기초 개념 및 이론 정리",
