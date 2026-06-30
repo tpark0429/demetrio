@@ -1,5 +1,18 @@
 [
     {
+        "id": "math-206",
+        "title": "Monte Carlo Approximation",
+        "date": "2026-06-30",
+        "category": "수학/Probability & Information",
+        "tags": [
+            "Probability",
+            "Monte Carlo"
+        ],
+        "pinned": false,
+        "excerpt": "Monte Carlo Approximation 개념",
+        "file": "math-206.md"
+    },
+    {
         "id": "math-302",
         "title": "그린 함수(Green's Function)와 Neural Operator",
         "date": "2026-06-29",
