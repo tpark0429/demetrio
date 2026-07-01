@@ -8,7 +8,7 @@
     <title>Research Notes</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=5">
+    <link rel="stylesheet" href="css/style.css?v=6">
 
     <!-- KaTeX for Math (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -63,6 +63,24 @@
 
                 <div class="hr"></div>
 
+                <div class="groupTitle">Visitors</div>
+                <div class="visitor-card">
+                    <div class="visitor-item">
+                        <span class="visitor-label">Total Visits</span>
+                        <span class="visitor-val" id="totalVisits">Loading...</span>
+                    </div>
+                    <div class="visitor-item">
+                        <span class="visitor-label">Today's Visits</span>
+                        <span class="visitor-val" id="todayVisits">Loading...</span>
+                    </div>
+                    <details class="visitor-history-details">
+                        <summary>Daily History (Last 7 Days)</summary>
+                        <div id="visitorHistoryList" class="visitor-history-list"></div>
+                    </details>
+                </div>
+
+                <div class="hr"></div>
+
                 <div class="groupTitle">About</div>
                 <div style="color:var(--muted); font-size:12px; line-height:1.6">
                     Study without desire spoils the memory, and it retains nothing that it takes in.<br>
@@ -94,7 +112,7 @@
     </div>
 
     <!-- App Logic -->
-    <script defer src="js/app.js?v=5"></script>
+    <script defer src="js/app.js?v=6"></script>
 </body>
 
 </html>

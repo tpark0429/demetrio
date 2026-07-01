@@ -7,7 +7,6 @@ tags: ["Probability", "Monte Carlo"]
 pinned: false
 excerpt: "Monte Carlo Approximation 개념"
 ---
-
 ## Goal
 - Approximate $\mathbb{E}_{X \sim p(x)}[f(X)]$
 - $p(x)$가 주어졌을 때, $f(x)$의 기댓값을 구하는 것이 목표
@@ -28,7 +27,9 @@ excerpt: "Monte Carlo Approximation 개념"
 - 반지름의 길이가 1인 원의 4분의 1(4분원)의 넓이는 $\frac{\pi}{4}$
 - 정사각형 영역 안에 무작위로 점 $(x, y)$를 균일하게 생성할 때, 해당 점이 4분원 내부($x^2 + y^2 \le 1$)에 위치할 확률은 $\frac{\pi}{4}$
 - 무작위 시행 횟수 $N$이 커질수록, 4분원 내부에 들어온 점의 개수 $N_{\text{in}}$의 비율은 기댓값 $\frac{\pi}{4}$에 수렴
-  $$ \frac{N_{\text{in}}}{N} \approx \frac{\pi}{4} \implies \pi \approx 4 \times \frac{N_{\text{in}}}{N} $$
+  $$
+\frac{N_{\text{in}}}{N} \approx \frac{\pi}{4} \implies \pi \approx 4 \times \frac{N_{\text{in}}}{N} \tag{1}
+$$
 
 ### 2. Python code
 무작위 시행을 통해 점을 생성하고 원주율을 계산한 뒤 시각화하는 파이썬 스크립트

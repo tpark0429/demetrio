@@ -34,6 +34,7 @@ async function init() {
         bindEvents();
         checkHash(); // URL 체크
         renderAll();
+        initVisitorCounter();
 
         window.addEventListener("hashchange", checkHash);
     } catch (e) {
@@ -395,3 +396,75 @@ function bindEvents() {
 
 // Start
 init();
+
+/* Visitor Counter using CounterAPI v1 */
+async function initVisitorCounter() {
+    const namespace = "demetrio_blog";
+    const dateObj = new Date();
+    // Use KST YYYY-MM-DD
+    const kstOffset = 9 * 60 * 60 * 1000; // KST is UTC+9
+    const kstDate = new Date(dateObj.getTime() + (dateObj.getTimezoneOffset() * 60 * 1000) + kstOffset);
+    const yyyy = kstDate.getFullYear();
+    const mm = String(kstDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(kstDate.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    const isNewSession = !sessionStorage.getItem("visited");
+    sessionStorage.setItem("visited", "true");
+
+    const totalUrl = `https://api.counterapi.dev/v1/${namespace}/total` + (isNewSession ? "/up" : "");
+    const todayUrl = `https://api.counterapi.dev/v1/${namespace}/date_${todayStr}` + (isNewSession ? "/up" : "");
+
+    // Fetch total and today's visits in parallel
+    try {
+        const [resTotal, resToday] = await Promise.all([
+            fetch(totalUrl).then(r => r.json()),
+            fetch(todayUrl).then(r => r.json())
+        ]);
+        
+        $("totalVisits").textContent = (resTotal && resTotal.count !== undefined) ? resTotal.count.toLocaleString() : "-";
+        $("todayVisits").textContent = (resToday && resToday.count !== undefined) ? resToday.count.toLocaleString() : "-";
+    } catch (e) {
+        console.error("Failed to load total/today visits", e);
+        $("totalVisits").textContent = "-";
+        $("todayVisits").textContent = "-";
+    }
+
+    // Load last 7 days history
+    const historyList = $("visitorHistoryList");
+    historyList.innerHTML = "";
+
+    const daysToFetch = [];
+    for (let i = 0; i < 7; i++) {
+        const prevDate = new Date(kstDate.getTime() - i * 24 * 60 * 60 * 1000);
+        const pY = prevDate.getFullYear();
+        const pM = String(prevDate.getMonth() + 1).padStart(2, '0');
+        const pD = String(prevDate.getDate()).padStart(2, '0');
+        const pStr = `${pY}-${pM}-${pD}`;
+        daysToFetch.push(pStr);
+    }
+
+    // Fetch history in parallel (GET only, no increment)
+    try {
+        const historyResults = await Promise.all(
+            daysToFetch.map(d => 
+                fetch(`https://api.counterapi.dev/v1/${namespace}/date_${d}`)
+                    .then(r => r.ok ? r.json() : { count: 0 })
+                    .catch(() => ({ count: 0 }))
+            )
+        );
+
+        historyResults.forEach((data, index) => {
+            const dateStr = daysToFetch[index];
+            const displayDate = index === 0 ? "Today" : dateStr.substring(5); // Show e.g. "07-01"
+            const row = document.createElement("div");
+            row.className = "visitor-history-row";
+            const val = (data && data.count !== undefined) ? data.count.toLocaleString() : "0";
+            row.innerHTML = `<span>${displayDate}</span><span style="font-weight:600">${val}</span>`;
+            historyList.appendChild(row);
+        });
+    } catch (e) {
+        console.error("Failed to load visitor history", e);
+        historyList.innerHTML = "<div style='color:salmon'>History load failed</div>";
+    }
+}
