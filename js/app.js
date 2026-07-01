@@ -328,11 +328,29 @@ async function openPost(id) {
         // Render Markdown & Math
         const mathBlocks = [];
         let placeholderCounter = 0;
+        let equationIndex = 1;
 
-        // Replace block math ($$)
-        let processedMd = md.replace(/\$\$([\s\S]+?)\$\$/g, (match) => {
+        // Replace block math ($$) and auto-number them dynamically
+        let processedMd = md.replace(/\$\$([\s\S]+?)\$\$/g, (match, blockContent) => {
+            let cleanContent = blockContent.trim();
+            // Auto-tag if it doesn't contain a manual \tag{...}
+            if (!cleanContent.includes("\\tag{")) {
+                if (cleanContent.includes("\n")) {
+                    const lines = cleanContent.split("\n");
+                    for (let j = lines.length - 1; j >= 0; j--) {
+                        if (lines[j].trim()) {
+                            lines[j] = lines[j].trimEnd() + ` \\tag{${equationIndex}}`;
+                            break;
+                        }
+                    }
+                    cleanContent = lines.join("\n");
+                } else {
+                    cleanContent += ` \\tag{${equationIndex}}`;
+                }
+                equationIndex++;
+            }
             const placeholder = `%%MATH_BLOCK_${placeholderCounter}%%`;
-            mathBlocks.push({ placeholder, content: match });
+            mathBlocks.push({ placeholder, content: `$$\n${cleanContent}\n$$` });
             placeholderCounter++;
             return placeholder;
         });

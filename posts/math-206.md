@@ -28,7 +28,7 @@ excerpt: "Monte Carlo Approximation 개념"
 - 정사각형 영역 안에 무작위로 점 $(x, y)$를 균일하게 생성할 때, 해당 점이 4분원 내부($x^2 + y^2 \le 1$)에 위치할 확률은 $\frac{\pi}{4}$
 - 무작위 시행 횟수 $N$이 커질수록, 4분원 내부에 들어온 점의 개수 $N_{\text{in}}$의 비율은 기댓값 $\frac{\pi}{4}$에 수렴
   $$
-\frac{N_{\text{in}}}{N} \approx \frac{\pi}{4} \implies \pi \approx 4 \times \frac{N_{\text{in}}}{N} \tag{1}
+\frac{N_{\text{in}}}{N} \approx \frac{\pi}{4} \implies \pi \approx 4 \times \frac{N_{\text{in}}}{N}
 $$
 
 ### 2. Python code
