@@ -12,6 +12,8 @@ def parse_front_matter(content):
     Parses YAML-like front matter from the content.
     Returns metadata dict and the rest of the content.
     """
+    content = content.lstrip('\ufeff')
+
     # Simple regex to find content between first two ---
     match = re.search(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
     if not match:

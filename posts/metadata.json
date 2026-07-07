@@ -1,5 +1,19 @@
 [
     {
+        "id": "ai-102",
+        "title": "Stochastic Approach",
+        "date": "2026-07-02",
+        "category": "AI/Deep Learning",
+        "tags": [
+            "Deep Learning",
+            "Stochastic",
+            "Monte Carlo"
+        ],
+        "pinned": false,
+        "excerpt": "Deep Learning에서의 확률적 접근법",
+        "file": "ai-102.md"
+    },
+    {
         "id": "math-206",
         "title": "Monte Carlo Approximation",
         "date": "2026-06-30",
