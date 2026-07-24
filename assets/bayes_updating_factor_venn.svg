@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" role="img" aria-labelledby="title desc">
+  <title id="title">가설 H와 증거 E의 벤다이어그램 및 Bayesian updating factor</title>
+  <desc id="desc">전체 표본공간 안의 가설 H, 증거 E, 교집합을 표시하고 prior에서 posterior로 갱신되는 관계를 설명한다.</desc>
+  <defs>
+    <style>
+      .title{font:700 30px Arial,'Noto Sans KR',sans-serif;fill:#172033}.sub{font:400 17px Arial,'Noto Sans KR',sans-serif;fill:#667085}.label{font:700 23px Arial,'Noto Sans KR',sans-serif;fill:#172033}.body{font:400 17px Arial,'Noto Sans KR',sans-serif;fill:#344054}.formula{font:600 24px Georgia,'Times New Roman',serif;fill:#172033}.small{font:400 15px Arial,'Noto Sans KR',sans-serif;fill:#475467}.box{fill:#fff;stroke:#cbd5e1;stroke-width:2}
+    </style>
+    <clipPath id="clipH"><circle cx="430" cy="310" r="175"/></clipPath>
+  </defs>
+  <rect width="1100" height="650" fill="#f8fafc"/>
+  <text x="550" y="48" text-anchor="middle" class="title">Evidence가 Hypothesis의 확률을 어떻게 바꾸는가?</text>
+  <text x="550" y="78" text-anchor="middle" class="sub">원의 넓이는 각 사건의 확률, 겹친 영역은 P(H ∩ E)를 뜻한다.</text>
+  <rect x="65" y="105" width="970" height="385" rx="22" class="box"/>
+  <text x="88" y="137" class="body">전체 표본공간 Ω</text>
+  <circle cx="430" cy="310" r="175" fill="#5b7cfa" fill-opacity=".35" stroke="#4663d8" stroke-width="3"/>
+  <circle cx="665" cy="310" r="175" fill="#f59e5b" fill-opacity=".38" stroke="#d97730" stroke-width="3"/>
+  <circle cx="665" cy="310" r="175" fill="#7257c7" fill-opacity=".62" clip-path="url(#clipH)"/>
+  <text x="350" y="245" text-anchor="middle" class="label">H</text>
+  <text x="350" y="274" text-anchor="middle" class="body">Hypothesis</text>
+  <text x="745" y="245" text-anchor="middle" class="label">E</text>
+  <text x="745" y="274" text-anchor="middle" class="body">Evidence</text>
+  <text x="548" y="310" text-anchor="middle" class="label" fill="#fff">H ∩ E</text>
+  <text x="548" y="338" text-anchor="middle" class="small" fill="#fff">가설과 일치하는 증거</text>
+  <text x="350" y="425" text-anchor="middle" class="body">P(H): evidence 관찰 전 prior</text>
+  <text x="745" y="425" text-anchor="middle" class="body">P(E): evidence의 전체 발생 확률</text>
+  <rect x="105" y="520" width="890" height="92" rx="18" fill="#eef2ff" stroke="#8b9cf6" stroke-width="2"/>
+  <text x="550" y="559" text-anchor="middle" class="formula">P(H | E) = [ P(E | H) / P(E) ] × P(H)</text>
+  <text x="550" y="590" text-anchor="middle" class="body">Posterior = Updating factor × Prior</text>
+</svg>
