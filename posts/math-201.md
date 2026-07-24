@@ -408,8 +408,6 @@ Frequentist 관점에서는 hypothesis를 확률변수로 취급하지 않고 �
 
 Bayesian 관점에서는 hypothesis 자체의 불확실성을 probability로 표현한다. Evidence를 관찰하기 전의 $P(H)$에서 출발하여 evidence가 hypothesis와 얼마나 잘 일치하는지를 반영하고, 그 결과를 $P(H\mid E)$로 업데이트한다.
 
-### Venn Diagram으로 본 Prior와 Evidence
-
 ![Hypothesis H와 Evidence E의 Bayesian updating factor](/assets/bayes_updating_factor_venn.svg)
 
 벤다이어그램에서 전체 사각형은 sample space $\Omega$이고, 각 영역의 넓이는 probability에 대응한다.
