@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520" role="img" aria-labelledby="title desc">
+  <title id="title">Rolling Billiard Balls 게임의 8회 관측 결과</title>
+  <desc id="desc">당구대를 경계선으로 Alice와 Bob 영역으로 나누고, Alice 영역에 다섯 개, Bob 영역에 세 개의 공이 멈춘 결과를 보여준다.</desc>
+  <defs>
+    <style>
+      .title{font:700 30px Arial,'Noto Sans KR',sans-serif;fill:#172033}.sub{font:400 17px Arial,'Noto Sans KR',sans-serif;fill:#667085}.label{font:700 23px Arial,'Noto Sans KR',sans-serif;fill:#fff}.body{font:500 17px Arial,'Noto Sans KR',sans-serif;fill:#344054}.ballText{font:700 14px Arial,sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1100" height="520" fill="#f8fafc"/>
+  <text x="550" y="47" text-anchor="middle" class="title">Rolling Billiard Balls: Alice 5승, Bob 3승</text>
+  <text x="550" y="78" text-anchor="middle" class="sub">공이 멈춘 영역에 따라 승자가 결정되며, 경계 위치가 Alice의 승리 확률 p를 결정한다.</text>
+  <rect x="80" y="120" width="940" height="280" rx="34" fill="#16836f" stroke="#6b4423" stroke-width="16"/>
+  <rect x="88" y="128" width="580" height="264" rx="23" fill="#2a9d8f"/>
+  <rect x="668" y="128" width="344" height="264" rx="23" fill="#e9a23b"/>
+  <line x1="668" y1="116" x2="668" y2="404" stroke="#fff" stroke-width="7" stroke-dasharray="14 10"/>
+  <text x="378" y="166" text-anchor="middle" class="label">Alice 영역: p</text>
+  <text x="840" y="166" text-anchor="middle" class="label">Bob 영역: 1-p</text>
+  <g fill="#4169e1" stroke="#fff" stroke-width="3">
+    <circle cx="190" cy="235" r="25"/><circle cx="330" cy="315" r="25"/><circle cx="455" cy="225" r="25"/><circle cx="565" cy="325" r="25"/><circle cx="610" cy="245" r="25"/>
+  </g>
+  <g class="ballText" text-anchor="middle">
+    <text x="190" y="240">A1</text><text x="330" y="320">A3</text><text x="455" y="230">A4</text><text x="565" y="330">A6</text><text x="610" y="250">A8</text>
+  </g>
+  <g fill="#d1495b" stroke="#fff" stroke-width="3">
+    <circle cx="735" cy="245" r="25"/><circle cx="840" cy="325" r="25"/><circle cx="925" cy="225" r="25"/>
+  </g>
+  <g class="ballText" text-anchor="middle">
+    <text x="735" y="250">B2</text><text x="840" y="330">B5</text><text x="925" y="230">B7</text>
+  </g>
+  <text x="550" y="446" text-anchor="middle" class="body">관측 순서: A → B → A → A → B → A → B → A</text>
+  <text x="550" y="479" text-anchor="middle" class="body">Frequentist estimate: p̂ = 5/8,  1-p̂ = 3/8</text>
+</svg>

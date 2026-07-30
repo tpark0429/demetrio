@@ -444,3 +444,89 @@ $$
 - $\frac{P(E\mid H)}{P(E)}<1$: Evidence가 hypothesis 아래에서 상대적으로 덜 나타나므로 $P(H\mid E)<P(H)$가 된다. Evidence가 hypothesis를 약화한다.
 
 즉, Bayesian inference는 새로운 evidence가 들어올 때마다 prior에 updating factor를 곱하여 posterior를 만들고, 이 posterior를 다음 evidence에 대한 새로운 prior로 사용하는 반복적인 belief update 과정이다.
+
+## 🧪 Example: Rolling Billiard Balls
+
+Alice와 Bob이 직사각형 당구대에서 공을 굴리는 게임을 한다고 가정한다. 당구대에는 세로 방향의 경계선이 하나 그어져 있으며, 공이 멈춘 위치에 따라 다음과 같이 점수를 얻는다.
+
+- 공이 경계선의 왼쪽인 **Alice 영역**에 멈추면 Alice가 1점을 얻는다.
+- 공이 경계선의 오른쪽인 **Bob 영역**에 멈추면 Bob이 1점을 얻는다.
+- 각 시행에서 공은 독립적으로 굴러가며, 이전 결과는 다음 공의 움직임에 영향을 주지 않는다.
+
+![Rolling Billiard Balls의 8회 관측 결과](/assets/rolling_billiard_balls_frequentist.svg)
+
+당구대 전체 길이를 1로 정규화하고 공이 어느 위치에나 균일하게 멈춘다고 가정한다. Alice 영역의 비율을 $p$라고 하면 한 번의 시행에서 각 선수가 이길 확률은 다음과 같다.
+
+$$
+P(\text{Alice wins})=p
+$$
+
+$$
+P(\text{Bob wins})=1-p
+$$
+
+경계선의 정확한 위치를 알 수 없으므로 $p$는 알려지지 않은 값이다. 게임을 8번 진행한 결과가 다음과 같다고 하자.
+
+| 시행 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 승자 | Alice | Bob | Alice | Alice | Bob | Alice | Bob | Alice |
+
+Alice는 5번, Bob은 3번 승리했다.
+
+### Frequentist Approach
+
+Frequentist 관점에서는 승리 확률 $p$가 어떤 하나의 고정된 참값을 가지지만, 현재 그 값을 모른다고 본다. 반면 8번의 게임 결과는 고정된 $p$에서 무작위로 생성된 random data이다.
+
+Alice의 승리 횟수를 random variable $X$라고 하면, 각 게임은 성공 확률이 $p$인 Bernoulli trial이고 전체 8번의 승리 횟수는 binomial distribution을 따른다.
+
+$$
+X\sim\operatorname{Binomial}(n=8,p)
+$$
+
+따라서 Alice가 8번 중 정확히 $k$번 이길 확률은 다음과 같다.
+
+$$
+P(X=k\mid p)
+=\binom{8}{k}p^k(1-p)^{8-k}
+$$
+
+현재 관측값은 $X=5$이므로, 이 데이터를 얻을 likelihood는 다음과 같다.
+
+$$
+L(p)
+=P(X=5\mid p)
+=\binom{8}{5}p^5(1-p)^3
+$$
+
+Frequentist는 관측된 데이터가 가장 잘 나타나도록 하는 하나의 $p$를 추정한다. Binomial distribution에서 maximum likelihood estimate는 전체 시행 중 성공한 비율이므로 다음과 같다.
+
+$$
+\widehat{p}_{\mathrm{MLE}}
+=\frac{\text{Alice의 승리 횟수}}{\text{전체 시행 횟수}}
+=\frac{5}{8}
+=0.625
+$$
+
+따라서 현재 데이터로 추정한 다음 게임의 승리 확률은 다음과 같다.
+
+$$
+\widehat{P}(\text{Alice wins})=\frac{5}{8}=0.625
+$$
+
+$$
+\widehat{P}(\text{Bob wins})=\frac{3}{8}=0.375
+$$
+
+추정값 $\widehat p=5/8$을 binomial probability에 대입하면, 동일한 조건에서 8번 중 Alice가 정확히 5번 이길 확률은 다음과 같다.
+
+$$
+P\left(X=5\mid \widehat p=\frac{5}{8}\right)
+=\binom{8}{5}
+\left(\frac{5}{8}\right)^5
+\left(\frac{3}{8}\right)^3
+\approx 0.2816
+$$
+
+즉, Frequentist는 관측된 8번의 결과에서 $p$를 하나의 값 $5/8$로 point estimation하고, 이 값을 기준으로 Alice와 Bob의 이후 승리 확률을 계산한다.
+
+> ⚠️ **Caution**: $\widehat p=5/8$은 8번의 제한된 관측에서 얻은 추정값이지 실제 경계 확률 $p$ 그 자체는 아니다. Frequentist의 point estimate만으로는 $p$에 대한 불확실성이나 관측 이전의 정보를 직접 나타내지 않는다.
