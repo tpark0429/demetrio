@@ -530,3 +530,159 @@ $$
 즉, Frequentist는 관측된 8번의 결과에서 $p$를 하나의 값 $5/8$로 point estimation하고, 이 값을 기준으로 Alice와 Bob의 이후 승리 확률을 계산한다.
 
 > ⚠️ **Caution**: $\widehat p=5/8$은 8번의 제한된 관측에서 얻은 추정값이지 실제 경계 확률 $p$ 그 자체는 아니다. Frequentist의 point estimate만으로는 $p$에 대한 불확실성이나 관측 이전의 정보를 직접 나타내지 않는다.
+
+
+### Bayesian Approach
+
+Bayesian 관점에서는 승리 확률의 불확실성을 probability distribution으로 표현한다. 기존의 Alice 승률 $p$와 구분하기 위해 Bob이 한 게임에서 이길 확률을 $q=1-p$로 정의하자.
+
+경계선의 위치에 관해 알고 있는 정보가 없으므로 uniform prior를 사용한다.
+
+$$
+q\sim\operatorname{Beta}(1,1),\qquad f(q)=1
+$$
+
+8번의 게임에서 Bob이 3번, Alice가 5번 이긴 관측 데이터를 $D$라고 하면 likelihood는 다음과 같다.
+
+$$
+P(D\mid q)=\binom{8}{3}q^3(1-q)^5
+$$
+
+#### Posterior Distribution
+
+연속 random variable에 대한 Bayes' theorem을 적용하면
+
+$$
+f(q\mid D)
+=\frac{P(D\mid q)f(q)}
+{\displaystyle\int_0^1P(D\mid u)f(u)\,du}
+$$
+
+이다. Uniform prior와 likelihood를 대입하고 공통항 $\binom83$을 약분하면 다음과 같다.
+
+$$
+f(q\mid D)
+=\frac{q^3(1-q)^5}
+{\displaystyle\int_0^1u^3(1-u)^5\,du}
+$$
+
+Beta function의 정의
+
+$$
+B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\,dt
+$$
+
+를 이용하면 분모는 $B(4,6)$이므로
+
+$$
+f(q\mid D)=\frac{q^{4-1}(1-q)^{6-1}}{B(4,6)}
+$$
+
+이다. 따라서 posterior distribution은 다음과 같다.
+
+$$
+q\mid D\sim\operatorname{Beta}(4,6)
+$$
+
+이는 Beta--Binomial conjugacy에 따라 prior의 parameter에 관측 횟수가 더해진 결과이다.
+
+$$
+\operatorname{Beta}(1,1)
+\xrightarrow{\text{Bob 3 wins, Alice 5 wins}}
+\operatorname{Beta}(1+3,1+5)
+$$
+
+Posterior mean은 $E[q\mid D]=4/(4+6)=0.4$이다. 관측 비율 $3/8=0.375$와 다른 이유는 uniform prior가 양쪽 결과에 한 번씩의 pseudo-count를 더하는 것과 같은 역할을 하기 때문이다.
+
+#### Posterior Predictive Probability
+
+앞으로 Bob이 3번 연속으로 이길 사건을 $W_3$라고 하자. $q$가 알려져 있다면 $P(W_3\mid q)=q^3$이지만, Bayesian 관점에서는 $q$를 하나의 값으로 고정하지 않고 posterior 전체에 대해 적분한다.
+
+$$
+\begin{aligned}
+P(W_3\mid D)
+&=\int_0^1P(W_3\mid q)f(q\mid D)\,dq\\
+&=\int_0^1q^3\frac{q^3(1-q)^5}{B(4,6)}\,dq\\
+&=\frac{B(7,6)}{B(4,6)}\\
+&=\frac{4\cdot5\cdot6}{10\cdot11\cdot12}\\
+&=\frac1{11}\approx0.0909.
+\end{aligned}
+$$
+
+따라서 Bob이 앞으로 3번 연속으로 이길 Bayesian probability는 약 $9.09\%$이다.
+
+#### Frequentist와 Bayesian 결과 비교
+
+Frequentist의 point estimate를 사용하는 plug-in 방식에서는 Bob의 승률을 $\widehat q=3/8$로 고정한다.
+
+$$
+\widehat P(W_3)=\left(\frac38\right)^3
+=\frac{27}{512}\approx0.0527
+$$
+
+| 접근 | 계산 | Bob의 3연승 확률 |
+|:---|:---|---:|
+| Frequentist plug-in | $(3/8)^3$ | 약 $5.27\%$ |
+| Bayesian posterior predictive | $E[q^3\mid D]$ | 약 $9.09\%$ |
+
+Bayesian 결과가 더 큰 이유는 $q$의 불확실성을 posterior 전체에 걸쳐 적분하기 때문이다. $q^3$은 $0\le q\le1$에서 convex function이므로 Jensen's inequality에 의해 $E[q^3\mid D]\ge(E[q\mid D])^3$가 성립한다.
+
+#### Simulation of Bayesian Inference
+
+다음 코드는 이 계산을 rejection sampling으로 재현한다. Uniform prior에서 Bob의 승률 후보를 생성한 뒤, 관측 데이터의 likelihood에 비례하여 후보를 채택한다. 채택된 승률들은 $\operatorname{Beta}(4,6)$ posterior를 따른다.
+
+```python
+import random
+from typing import Optional
+
+from scipy.special import comb
+
+
+def experiment(n: int = 8, bob_wins_observed: int = 3) -> Optional[str]:
+    """Run one rejection-sampling experiment."""
+    prob_bob_win = random.random()
+
+    prob_current_status = (
+        comb(n, bob_wins_observed)
+        * prob_bob_win**bob_wins_observed
+        * (1 - prob_bob_win) ** (n - bob_wins_observed)
+    )
+
+    if random.random() >= prob_current_status:
+        return None
+
+    if random.random() < prob_bob_win**3:
+        return "Bob"
+    return "Alice"
+
+
+def run_simulation(trials: int = 100_000) -> None:
+    """Compare Bayesian simulation with the frequentist plug-in estimate."""
+    results = [experiment() for _ in range(trials)]
+    bob_wins = results.count("Bob")
+    alice_wins = results.count("Alice")
+    accepted = bob_wins + alice_wins
+
+    if accepted == 0:
+        print("No posterior samples were accepted. Increase trials.")
+        return
+
+    print(f"# Experiments         : {trials:,}")
+    print(f"# Accepted samples    : {accepted:,}")
+    print(f"Bayesian probability  : {bob_wins / accepted * 100:.2f}%")
+    print(f"Frequentist plug-in   : {(3 / 8) ** 3 * 100:.2f}%")
+
+
+if __name__ == "__main__":
+    run_simulation()
+```
+
+충분히 많이 실행하면 Bayesian simulation은 이론값 $9.09\%$에 가까워지고, frequentist plug-in 값은 $5.27\%$이다. 채택 표본 수는 평균적으로 전체의 약 $1/9$이다. 이는 evidence가
+
+$$
+P(D)=\int_0^1\binom83q^3(1-q)^5\,dq
+=\binom83B(4,6)=\frac19
+$$
+
+이기 때문이다. 따라서 100,000개의 후보 중 평균 약 11,111개가 posterior sample로 채택된다.
+
