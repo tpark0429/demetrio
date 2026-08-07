@@ -154,16 +154,16 @@
     },
     {
         "id": "math-202",
-        "title": "Maximum A Posterior",
+        "title": "Maximum Likelihood Estimation (MLE) & Maximum A Posteriori (MAP)",
         "date": "2026-01-19",
         "category": "수학/Probability & Information",
         "tags": [
             "Probability",
-            "MAP",
-            "Bayesian rule"
+            "MLE",
+            "MAP"
         ],
         "pinned": false,
-        "excerpt": "MAP 개념.",
+        "excerpt": "MLE/MAP 개념.",
         "file": "math-202.md"
     },
     {
