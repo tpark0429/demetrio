@@ -7,7 +7,7 @@ tags: ["Probability", "MLE", "MAP"]
 pinned: false
 excerpt: "MLE/MAP 개념."
 ---
-
+ 
 ## Maximum Likelihood Estimation
 
 Maximum Likelihood Estimation(MLE)은 관측한 데이터를 가장 그럴듯하게 설명하는 parameter를 찾는 점 추정 방법이다. Bayes 정리 안에서 보면 MLE가 무엇을 사용하는지 명확해진다.
