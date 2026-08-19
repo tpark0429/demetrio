@@ -216,3 +216,5 @@ plt.close(fig)
 고정 Gaussian model은 모든 $x$에 같은 수평 평균과 같은 폭의 구간을 제시한다. 반면 조건부 model은 nonlinear mean을 따라가며 $x$가 증가할수록 커지는 noise도 표현한다.
 
 > 💡 **Mathematical Insight**: 이 결과는 MLE가 분포 가정을 제거했기 때문에 얻은 것이 아니다. Gaussian likelihood를 유지하면서 평균과 분산을 입력의 함수로 확장했기 때문에 얻은 결과이다. MLE는 더 유연하게 설계된 확률 모델의 parameter를 데이터에 맞춘다.
+
+## Maximum A Posteriori
