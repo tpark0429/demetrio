@@ -218,3 +218,204 @@ plt.close(fig)
 > 💡 **Mathematical Insight**: 이 결과는 MLE가 분포 가정을 제거했기 때문에 얻은 것이 아니다. Gaussian likelihood를 유지하면서 평균과 분산을 입력의 함수로 확장했기 때문에 얻은 결과이다. MLE는 더 유연하게 설계된 확률 모델의 parameter를 데이터에 맞춘다.
 
 ## Maximum A Posteriori
+
+Maximum A Posteriori(MAP)는 데이터를 관측한 뒤 가장 확률이 높은 parameter를 선택하는 점 추정 방법이다. MLE가 데이터가 주는 정보만 사용하는 반면, MAP는 데이터와 사전 지식을 함께 사용한다.
+
+$$
+\hat{\theta}_{\mathrm{MLE}}
+=\underset{\theta}{\arg\max}\;p(D\mid\theta)
+$$
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\max}\;p(\theta\mid D)
+$$
+
+결정적인 차이는 prior $p(\theta)$이다. Prior는 데이터를 관측하기 전에 어떤 parameter가 더 그럴듯한지를 나타내는 확률분포이다. 예를 들어 지나치게 큰 weight가 필요하지 않다고 판단하면 0 주변의 작은 weight에 높은 확률을 주는 prior를 사용할 수 있다.
+
+> 💡 **Mathematical Insight**: MLE에서 $\theta$는 고정된 미지수이고 likelihood만 비교한다. MAP에서는 $\theta$를 확률변수로 취급하여 prior와 likelihood를 결합한 posterior의 mode를 선택한다. 다만 MAP도 posterior 전체가 아니라 하나의 대표값만 반환하는 점 추정이다.
+
+### Bayes 정리에서 MAP까지
+
+Bayes 정리에서 시작한다.
+
+$$
+p(\theta\mid D)
+=\frac{p(D\mid\theta)p(\theta)}{p(D)}
+$$
+
+각 항의 의미는 다음과 같다.
+
+- $p(\theta\mid D)$: 데이터 관측 후의 posterior
+- $p(D\mid\theta)$: parameter가 데이터를 설명하는 likelihood
+- $p(\theta)$: 데이터 관측 전의 prior
+- $p(D)$: 가능한 모든 parameter를 고려한 evidence
+
+MAP 정의에 Bayes 정리를 대입하면 다음과 같다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\max}\;
+\frac{p(D\mid\theta)p(\theta)}{p(D)}
+$$
+
+Evidence는 parameter를 적분하여 얻는다.
+
+$$
+p(D)=\int p(D\mid\theta)p(\theta)\,d\theta
+$$
+
+이 적분이 marginalization이다. 모든 가능한 $\theta$의 영향을 합쳐 데이터 $D$ 자체가 관측될 확률을 구한다. 그러나 MAP 최적화에서는 이미 관측한 $D$가 고정되어 있으므로 $p(D)$는 후보 $\theta$에 따라 변하지 않는 하나의 양의 스칼라 상수이다. 같은 양의 상수로 나누어도 최댓값의 위치는 바뀌지 않는다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\max}\;
+p(D\mid\theta)p(\theta)
+$$
+
+따라서 MAP가 marginalization을 다른 항으로 근사하거나 weight로 대체하는 것은 아니다. 최적점의 위치를 구하는 데 필요하지 않아 정확히 제거할 수 있다. Posterior의 정규화된 확률값이나 posterior predictive distribution을 계산하려면 evidence 또는 이에 대한 근사가 다시 필요하다.
+
+로그를 취하면 곱이 합으로 변한다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\max}\;
+\left[
+\log p(D\mid\theta)+\log p(\theta)
+\right]
+$$
+
+부호를 바꾸면 익숙한 minimization problem이 된다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\min}\;
+\left[
+-\log p(D\mid\theta)-\log p(\theta)
+\right]
+$$
+
+첫 번째 항은 data loss이고 두 번째 항은 prior가 만드는 penalty이다.
+
+### Prior는 어떤 분포를 사용하는가
+
+Prior가 반드시 특정 분포여야 하는 것은 아니다. Parameter의 범위, 대칭성, sparsity와 같은 사전 지식을 표현하도록 선택한다.
+
+- Gaussian prior: parameter가 0 주변에 모이고 큰 절댓값은 드물다고 가정한다.
+- Laplace prior: 0에서 더 뾰족한 분포를 사용하여 많은 parameter가 정확히 0에 가까워지도록 유도한다.
+- Uniform prior: 허용 범위 안의 parameter를 동등하게 취급한다.
+
+Prior를 정해도 되는 이유는 확률이 반복 실험의 빈도만을 의미하지 않기 때문이다. Bayesian 관점에서 확률은 아직 알지 못하는 parameter에 대한 불확실성을 표현할 수 있다. 사전 지식이 약하면 분산이 큰 prior를 사용하고, 충분한 데이터가 쌓이면 likelihood가 posterior를 지배하게 한다.
+
+> ⚠️ **Caution**: 계산이 편하다는 이유만으로 prior가 참이라고 단정할 수는 없다. Prior는 모델 가정이므로 domain knowledge와 sensitivity analysis를 통해 결과가 prior 선택에 얼마나 의존하는지 확인해야 한다.
+
+### Gaussian Likelihood와 Gaussian Prior
+
+L2 regularization과의 관계를 보기 위해 regression 문제를 생각한다. 관측 noise가 서로 독립이며 분산이 $\sigma^2$인 Gaussian distribution을 따른다고 가정한다.
+
+$$
+y_i\mid x_i,\theta
+\sim\mathcal{N}\left(f_{\theta}(x_i),\sigma^2\right)
+$$
+
+전체 데이터의 likelihood는 다음과 같다.
+
+$$
+p(D\mid\theta)
+=\prod_{i=1}^{N}
+\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left[
+-\frac{\left(y_i-f_{\theta}(x_i)\right)^2}{2\sigma^2}
+\right]
+$$
+
+Negative log-likelihood에서 $\theta$와 무관한 상수를 제거하면 다음 항만 남는다.
+
+$$
+-\log p(D\mid\theta)
+\overset{c}{=}
+\frac{1}{2\sigma^2}
+\sum_{i=1}^{N}
+\left(y_i-f_{\theta}(x_i)\right)^2
+$$
+
+$\overset{c}{=}$는 양변이 $\theta$와 무관한 상수만큼 차이 난다는 의미이다. Weight vector에 대해서는 평균이 0이고 covariance가 $\tau^2I$인 isotropic Gaussian prior를 가정한다.
+
+$$
+\theta\sim\mathcal{N}(0,\tau^2I)
+$$
+
+$$
+p(\theta)
+=\frac{1}{(2\pi\tau^2)^{d/2}}
+\exp\left(-\frac{\theta^T\theta}{2\tau^2}\right)
+$$
+
+이 prior는 모든 방향을 동일하게 취급하며, 0에서 멀리 떨어진 큰 weight에 낮은 density를 부여한다. Negative log를 취하고 $\theta$와 무관한 상수를 제거하면 다음과 같다.
+
+$$
+-\log p(\theta)
+\overset{c}{=}
+\frac{1}{2\tau^2}\theta^T\theta
+=\frac{1}{2\tau^2}\lVert\theta\rVert_2^2
+$$
+
+즉, L2 norm은 임의로 추가한 모양이 아니라 Gaussian prior의 negative log-density에서 나온다. Likelihood와 prior를 MAP 목적함수에 대입하면 다음과 같다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\min}\;
+\left[
+\frac{1}{2\sigma^2}
+\sum_{i=1}^{N}\left(y_i-f_{\theta}(x_i)\right)^2
++\frac{1}{2\tau^2}\lVert\theta\rVert_2^2
+\right]
+$$
+
+목적함수 전체에 양의 상수 $2\sigma^2$을 곱해도 minimizer는 변하지 않는다.
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\min}\;
+\left[
+\sum_{i=1}^{N}\left(y_i-f_{\theta}(x_i)\right)^2
++\lambda\lVert\theta\rVert_2^2
+\right],
+\qquad
+\lambda=\frac{\sigma^2}{\tau^2}
+$$
+
+여기서 weight $\lambda$는 빠진 marginalization을 보충하는 값이 아니다. Data noise의 scale $\sigma^2$과 prior uncertainty의 scale $\tau^2$ 사이의 상대적 비율이다.
+
+- $\sigma^2$이 크면 데이터를 덜 신뢰하므로 prior의 상대적 영향이 커진다.
+- $\tau^2$이 크면 넓고 약한 prior가 되므로 L2 penalty가 작아진다.
+- $\tau^2$이 작으면 0 주변을 강하게 신뢰하므로 L2 penalty가 커진다.
+
+### MLE와 MAP의 최종 비교
+
+동일한 Gaussian regression model에서 두 추정량은 다음과 같이 비교된다.
+
+$$
+\hat{\theta}_{\mathrm{MLE}}
+=\underset{\theta}{\arg\min}\;
+\sum_{i=1}^{N}
+\left(y_i-f_{\theta}(x_i)\right)^2
+$$
+
+$$
+\hat{\theta}_{\mathrm{MAP}}
+=\underset{\theta}{\arg\min}\;
+\left[
+\sum_{i=1}^{N}
+\left(y_i-f_{\theta}(x_i)\right)^2
++\lambda\lVert\theta\rVert_2^2
+\right]
+$$
+
+MLE는 관측 데이터에 가장 잘 맞는 parameter를 선택한다. MAP는 데이터 적합도와 prior가 선호하는 parameter 사이의 균형점을 선택한다. Uniform prior처럼 $p(\theta)$가 허용 영역에서 상수이면 prior 항이 최적점에 영향을 주지 않으므로 MAP는 MLE와 같아진다.
+
+Gaussian prior 대신 Laplace prior를 사용하면 negative log-prior가 $\lVert\theta\rVert_1$에 비례하므로 L1 regularization이 된다. 이처럼 regularization의 형태는 선택한 prior의 모양과 직접 연결된다.
+
+> ⚠️ **Caution**: 실제 neural network에서는 보통 bias를 weight decay에서 제외하기도 한다. 이는 bias에 같은 Gaussian prior를 적용하지 않거나 더 넓은 prior를 둔 것으로 해석할 수 있다.
+
+> ✅ **Key Takeaway**: MAP는 likelihood에 penalty를 임의로 덧붙인 방법이 아니다. Bayes 정리에서 evidence를 최적화와 무관한 상수로 제거하고, likelihood와 prior의 negative log를 최소화하면 data loss와 regularization으로 이루어진 목적함수가 자연스럽게 나타난다.
