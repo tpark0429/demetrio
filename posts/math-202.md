@@ -419,3 +419,10 @@ Gaussian prior 대신 Laplace prior를 사용하면 negative log-prior가 $\lVer
 > ⚠️ **Caution**: 실제 neural network에서는 보통 bias를 weight decay에서 제외하기도 한다. 이는 bias에 같은 Gaussian prior를 적용하지 않거나 더 넓은 prior를 둔 것으로 해석할 수 있다.
 
 > ✅ **Key Takeaway**: MAP는 likelihood에 penalty를 임의로 덧붙인 방법이 아니다. Bayes 정리에서 evidence를 최적화와 무관한 상수로 제거하고, likelihood와 prior의 negative log를 최소화하면 data loss와 regularization으로 이루어진 목적함수가 자연스럽게 나타난다.
+
+### MLE와 MAP 비교표
+
+| 비교 항목 | MLE | MAP |
+|---|---|---|
+| Goal | Find Optimal Parameter Set | Find Optimal Parameter Set |
+| Objective Function | $\hat{\theta}_{\mathrm{MLE}}=\underset{\theta}{\arg\min}\;\sum_{i=1}^{N}\left(y_i-f_{\theta}(x_i)\right)^2$ | $\hat{\theta}_{\mathrm{MAP}}=\underset{\theta}{\arg\min}\;\left[\sum_{i=1}^{N}\left(y_i-f_{\theta}(x_i)\right)^2+\lambda\lVert\theta\rVert_2^2\right]$ |
