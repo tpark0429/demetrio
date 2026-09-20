@@ -13,16 +13,16 @@
     },
     {
         "id": "language-001",
-        "title": "영어 — Daily 암기 문장",
+        "title": "English",
         "date": "2026-09-20",
         "category": "language/영어",
         "tags": [
             "English",
-            "Daily",
-            "암기"
+            "입트영",
+            "통암기문장"
         ],
         "pinned": false,
-        "excerpt": "매일 영어 문장 두 개를 날짜별로 기록하는 암기 노트",
+        "excerpt": "입이 트이는 영어 통암기 문장",
         "file": "language-001.md"
     },
     {
