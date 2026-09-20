@@ -1,5 +1,31 @@
 [
     {
+        "id": "language-002",
+        "title": "TBD",
+        "date": "2026-09-20",
+        "category": "language/TBD",
+        "tags": [
+            "TBD"
+        ],
+        "pinned": false,
+        "excerpt": "추후 주제를 정할 언어 학습 노트",
+        "file": "language-002.md"
+    },
+    {
+        "id": "language-001",
+        "title": "영어 — Daily 암기 문장",
+        "date": "2026-09-20",
+        "category": "language/영어",
+        "tags": [
+            "English",
+            "Daily",
+            "암기"
+        ],
+        "pinned": false,
+        "excerpt": "매일 영어 문장 두 개를 날짜별로 기록하는 암기 노트",
+        "file": "language-001.md"
+    },
+    {
         "id": "ai-102",
         "title": "Stochastic Approach",
         "date": "2026-07-02",
