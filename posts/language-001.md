@@ -2,7 +2,7 @@
 id: "language-001"
 title: "English"
 date: "2026-09-20"
-category: "language/영어"
+category: "어학/영어"
 tags: ["English", "입트영", "통암기문장"]
 pinned: false
 excerpt: "입이 트이는 영어 통암기 문장"
