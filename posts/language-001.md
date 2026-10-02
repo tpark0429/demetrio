@@ -64,3 +64,18 @@ excerpt: "입이 트이는 영어 통암기 문장"
 
 - $\textcolor{red}{\text{Even a short break can be a chance to recharge.}}$ (짧은 시간에도 틈틈히 재충전할 수 있다.)
 - $\textcolor{red}{\text{Why all of a sudden?}}$ (갑자기 왜?)
+
+### 2026-09-29 (Tue)
+
+- $\textcolor{red}{\text{Playing an instrument always felt out of reach.}}$ (악기 연주는 평생 너무나 먼 일처럼 느껴졌다.)
+- $\textcolor{red}{\text{I've been working on it for over a year.}}$ (1년 넘게 열심히 하고 있다.)
+
+### 2026-09-30 (Wed)
+
+- $\textcolor{red}{\text{I set a long-term goal for myself.}}$ (나만의 장기 목표를 세웠다.)
+- $\textcolor{red}{\text{I still keep in touch with them.}}$ (나는 아직도 친구들과 연락하고 지낸다.)
+
+### 2026-10-02 (fri)
+
+- $\textcolor{red}{\text{I thought I was seeing things.}}$ (잘못 본 줄 알았다.)
+- $\textcolor{red}{\text{I didn't think much of it.}}$ (별 생각 없이 지나쳤다.)
