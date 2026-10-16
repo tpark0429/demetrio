@@ -75,7 +75,42 @@ excerpt: "입이 트이는 영어 통암기 문장"
 - $\textcolor{red}{\text{I set a long-term goal for myself.}}$ (나만의 장기 목표를 세웠다.)
 - $\textcolor{red}{\text{I still keep in touch with them.}}$ (나는 아직도 친구들과 연락하고 지낸다.)
 
-### 2026-10-02 (fri)
+### 2026-10-02 (Fri)
 
 - $\textcolor{red}{\text{I thought I was seeing things.}}$ (잘못 본 줄 알았다.)
 - $\textcolor{red}{\text{I didn't think much of it.}}$ (별 생각 없이 지나쳤다.)
+
+### 2026-10-06 (Tue)
+
+- $\textcolor{red}{\text{My neck and shoulders feel stiff.}}$ (목과 어깨가 뻐근하다.)
+- $\textcolor{red}{\text{The right pillow can make a big differences.}}$ (잘 맞는 베개가 큰 도움이 된다.)
+
+### 2026-10-07 (Wed)
+
+- $\textcolor{red}{\text{They were a little puzzled.}}$ (좀 의아해했다.)
+- $\textcolor{red}{\text{They remind me of my kids every time I use them.}}$ (그것들을 쓸 때마다 애들 생각이 난다.)
+
+### 2026-10-12 (Mon)
+
+- $\textcolor{red}{\text{He seemed like a kind and upstanding young man.}}$ (그는 친절하고 올바르고 건전한 인상을 지닌 청년이었다.)
+- $\textcolor{red}{\text{I guess you caught the bug late.}}$ (늦바람이 무섭다더니.)
+
+### 2026-10-13 (Tue)
+
+- $\textcolor{red}{\text{I can't tell you how touched I was by those words.}}$ (얼마나 뭉클했는지 말로 표현이 안된다.)
+- $\textcolor{red}{\text{I try to heap praise on my kids.}}$ (나는 우리 아이들을 아낌없이 칭찬하려고 노력한다.)
+
+### 2026-10-14 (wed)
+
+- $\textcolor{red}{\text{There's plenty of room for a family of four.}}$ (4인 가족이 사용하기에도 공간이 충분하다.)
+- $\textcolor{red}{\text{Isn't it a bit of a hassle?}}$ (좀 번거롭지 않아?)
+
+### 2026-10-15 (Thu)
+
+- $\textcolor{red}{\text{We have fun competing against each other.}}$ (우리는 서로 대결을하며 즐거운 시간을 보낸다.)
+- $\textcolor{red}{\text{Everything will fall into place eventually.}}$ (모든 일이 결국은 제자리를 찾아갈거다.)
+
+### 2026-10-16 (Fri)
+
+- $\textcolor{red}{\text{I feel deep down that I can do better.}}$ (나는 더 잘할 수 있다고 마음속 깊이 믿는다.)
+- $\textcolor{red}{\text{I have to look up words in the dictionary as I read.}}$ (사전에서 단어를 찾아보며 읽는다.)
