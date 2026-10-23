@@ -114,3 +114,18 @@ excerpt: "입이 트이는 영어 통암기 문장"
 
 - $\textcolor{red}{\text{I feel deep down that I can do better.}}$ (나는 더 잘할 수 있다고 마음속 깊이 믿는다.)
 - $\textcolor{red}{\text{I have to look up words in the dictionary as I read.}}$ (사전에서 단어를 찾아보며 읽는다.)
+
+### 2026-10-19 (Mon)
+
+- $\textcolor{red}{\text{I live about three and a half hours away by car.}}$ (차로 3시간 30분정도 걸리는 곳에 살고 있다..)
+- $\textcolor{red}{\text{Traveling seven hours round trip must be tough.}}$ (7시간씩 왔다갔다 하려면 힘들겠다.)
+
+### 2026-10-20 (Tue)
+
+- $\textcolor{red}{\text{Popular places often fill up as soon as reservations open.}}$ (인기가 많은 곳은 열리자마자 예약이 마감되곤 한다.)
+- $\textcolor{red}{\text{We were lucky enough to get a reservation.}}$ (우리는 운 좋게 예약에 성공할 수 있었다.)
+
+### 2026-10-22 (Thu)
+
+- $\textcolor{red}{\text{We naturally became close with each other after that.}}$ (그 이후로 우리는 자연스럽게 서로 사이가 가까워졌다.)
+- $\textcolor{red}{\text{We are practically family now.}}$ (이제는 거의 가족같은 사이야.)
